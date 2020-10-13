@@ -33,6 +33,10 @@ const routes: Routes = [
         path: 'gestion',
         loadChildren: () => import('src/app/modules/gestion/gestion.module').then(m => m.GestionModule),
       },
+      {
+        path: 'mantenedor',
+        loadChildren: () => import('src/app/modules/mantenedor/mantenedor.module').then(m => m.MantenedorModule),
+      },
     ],
   },
   {

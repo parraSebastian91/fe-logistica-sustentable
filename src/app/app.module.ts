@@ -59,10 +59,14 @@ import { CommonModule } from '@angular/common';
 import { HeaderInterceptorInterceptor } from './interceptor/header-interceptor.interceptor';
 import { FormatNumberPipe } from './pipes/format-number.pipe';
 import { AgmCoreModule } from '@agm/core';
+import { ListaUsuariosComponent } from './modules/mantenedor/lista-usuarios/lista-usuarios.component';
+import { PerfilComponent } from './modules/mantenedor/perfil/perfil.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListaUsuariosComponent,
+    PerfilComponent,
     // FormatNumberPipe,
     // FormularioEncomiendaComponent,
     // PuntoRetiroComponent,
