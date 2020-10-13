@@ -1,0 +1,19 @@
+<div class="contenedor" [ngStyle]="colores.border" [style.color]="colores.letra">
+    <div class="icono" [style.background]="colores.primario" *ngIf="!(icono === '' || icono === undefined)">
+        <fa-icon [icon]="icon" class="icon"></fa-icon>
+    </div>
+    <div class="contenido">
+        <div class="titulo" [ngStyle]="{
+            'border-top-left-radius':colores.border.radius,
+            'border-bottom-width': '2px',
+            'border-bottom-style': 'solid',
+            'border-bottom-color': colores.letra
+        }" [style.background]="colores.secundario">
+            {{titulo}}
+        </div>
+        <div class="info" [ngStyle]="{'border-bottom-left-radius':colores.border.radius }"
+            [style.background]="colores.terceario">
+            <ng-container *ngTemplateOutlet="customTemplate"></ng-container>
+        </div>
+    </div>
+</div>

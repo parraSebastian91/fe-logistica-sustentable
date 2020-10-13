@@ -1,0 +1,60 @@
+<app-loader [@spinner]="estadoSpinner">
+</app-loader>
+<div class="container-fluid h-100 contenedor">
+    <div class="d-flex justify-content-center h-85" [@ingreso]="estadoLogin">
+        <div class="user_card">
+            <div class="d-flex justify-content-center">
+                <div class="brand_logo_container">
+                    <div class="brand_logo">
+                        <img src="assets/Logo Awkn.png" class="imagen" alt="Logo">
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                <form [formGroup]="loginForm" (ngSubmit)="login()" #formLogin="ngForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-append">
+                            <span class="input-group-text material-icons icono">
+                                account_circle
+                            </span>
+                        </div>
+                        <input type="text" name="" class="form-control input_user" value="" formControlName="userName" placeholder="Nombre de usuario" (keydown.enter)="formLogin.onSubmit(undefined)">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-append">
+                            <span class="input-group-text material-icons icono">
+                                vpn_key
+                            </span>
+                        </div>
+                        <input type="password" name="" class="form-control input_pass" value="" formControlName="password" placeholder="Contraseña" (keydown.enter)="formLogin.onSubmit(undefined)">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="customControlInline" >
+                            <label class="custom-control-label" for="customControlInline">Recuerdame</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="button" name="button" class="btn login_btn" form="ngForm" (click)="formLogin.onSubmit(undefined)">Ingresar</button>
+                    </div>
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <button type="button" name="button" class="btn loginGoogle_btn" form="ngForm" (click)="loginWithGoogle()"> 
+                            <img src="assets/icon/iconfinder_gmail_1220367.svg" style="width: 20px;" alt="">
+                            <!-- <fa-icon [icon]="iconCorreo"></fa-icon> -->
+                            Ingresar con Google
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    ¿Aún no tiene cuenta? <a routerLink="auth/registro" routerLinkActive="active" class="ml-2" (click)="Registrar()">Registrese</a>
+                </div>
+                <!-- <div class="d-flex justify-content-center links">
+                    <a href="#">¿Perdió su contraseña?</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

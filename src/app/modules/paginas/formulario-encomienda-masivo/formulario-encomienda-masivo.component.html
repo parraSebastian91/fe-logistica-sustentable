@@ -1,0 +1,145 @@
+<mat-card class="example-card">
+    <mat-card-header class="card-header">
+        <div mat-card-avatar class="example-header-image">
+            <span class="material-icons icono">
+                assignment
+            </span>
+        </div>
+        <mat-card-title>Ingreso Masivo de encomiendas</mat-card-title>
+        <mat-card-subtitle>Ingrese los datos solicitados</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="card-content">
+
+        <mat-card class="card-retiro">
+            <mat-card-content>
+                <div class="row">
+                    <!-- <div class="col-lg-2  ">
+                    </div> -->
+                    <div class="col-lg-12 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6">
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Punto de retiro</mat-label>
+                                    <mat-select (selectionChange)="cambioTienda($event)"
+                                        [formControl]="ptoRetiroControl">
+                                        <!-- <mat-option>--</mat-option> -->
+                                        <mat-option *ngFor="let pto of ptoRetiro" [value]="pto.id">
+                                            {{pto.name}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-lg-3 col-md-6" style="margin-top: 10px;">
+                                <button mat-raised-button (click)="agregarPuntoRetiro()">Añadir nuevo punto de
+                                    retiro</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <mat-card class="card-tienda">
+                                    <mat-card-header>
+                                        <div mat-card-avatar class="example-header-image">
+                                            <span class="material-icons icono">
+                                                check_circle_outline
+                                            </span>
+                                        </div>
+                                        <mat-card-title>{{ selecShop.NombreTienda }}</mat-card-title>
+                                        <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                        <div class="row">
+                                            <div class="col-lg-4 col-md-4 cont-img">
+                                                <img src="assets/shop.png" class="imgTienda" alt="shop">
+                                            </div>
+                                            <div class="col-lg-8 col-md-8">
+                                                <mat-list class="list-shop">
+                                                    <mat-list-item>
+                                                        <mat-icon mat-list-icon>contacts</mat-icon>
+                                                        <div mat-line>{{selecShop.nameContacto}}</div>
+                                                    </mat-list-item>
+                                                    <mat-list-item>
+                                                        <mat-icon mat-list-icon>home</mat-icon>
+                                                        <div mat-line>{{selecShop.direccion}}, {{selecShop.comuna.name}}
+                                                        </div>
+                                                    </mat-list-item>
+                                                    <mat-list-item>
+                                                        <mat-icon mat-list-icon>call</mat-icon>
+                                                        <div mat-line> {{selecShop.telefono}} </div>
+                                                    </mat-list-item>
+                                                    <mat-list-item>
+                                                        <mat-icon mat-list-icon>rate_review</mat-icon>
+                                                        <div mat-line>{{selecShop.referencia}}</div>
+                                                    </mat-list-item>
+                                                </mat-list>
+                                            </div>
+                                        </div>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                            <div class="col-lg-5 col-md-12 info-final">
+                                <span class="sub-total">$
+                                    {{totalValorizado | formatNumber}}
+                                </span>
+                            </div>
+                            <div class="col-lg-1 col-md-3 col-sm-3 col-3">
+                                <div class="row col-add">
+                                    <button mat-button class="boton-icon" (click)="cargarExcel()"
+                                        matTooltip="Procear Excel para envíos Masivos">
+                                        <fa-icon [icon]="faFileExcel"></fa-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-lg-6 col-md-6" style="padding: 10px 0 0 15px;">
+                        
+                    </div>
+                </div> -->
+                <div class="row ">
+                    <div class="col-lg-11 col-md-12 col-sm-12">
+                        <mat-card class="card-tienda">
+                            <mat-card-content>
+                                <div class="table-row">
+                                    <app-dynamic-table [quitarColumna]="['id','envio_especial']" [data]="dataExcel"
+                                        [checkRow]="seleccionFila" [accionCol]="accionFila"
+                                        (selectedRow)="selectedRow($event)" (editRow)="editarEncomienda($event)">
+                                    </app-dynamic-table>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <!-- <div class="col-5"></div> -->
+                    <div class="col-lg-1 col-md-3 col-sm-3 col-3">
+                        <div class="row">
+
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-6 col-add">
+                                <button mat-button class="boton-icon" [disabled]="btnAgregar"
+                                    (click)="crearEncomienda()">
+                                    <fa-icon [icon]="faPlusSquare"></fa-icon>
+                                </button>
+                            </div>
+                            <!-- </div>
+                        <div class="row"> -->
+                            <div class="col-lg-12 col-md-6 col-sm-6 col-6 col-delete">
+                                <button mat-button class="boton-icon" [disabled]="btnEliminar" (click)="eliminar()">
+                                    <fa-icon [icon]="delIcon"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-5"></div> -->
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-md-3 btnsFooter">
+                        <button class="btnCustom azul" (click)="gestionarPedidos()">
+                            <div class="btnNombre">Gestionar Envío</div>
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </mat-card-content>
+</mat-card>

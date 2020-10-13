@@ -1,0 +1,8 @@
+<div [ngStyle]="style">
+    <img [src]="estado.icon" alt="" class="img-state" [tooltip]="HtmlContent" content-type="template">
+</div>
+
+<ng-template #HtmlContent>
+    <div class="titulo"><b>{{estado.name}}</b></div>
+    <div class="descripcion">{{estado.desc}}</div>
+</ng-template>

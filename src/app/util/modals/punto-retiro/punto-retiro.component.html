@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="titulo">
+                <div class="icon">
+                    <span class="material-icons icono">
+                        assignment
+                    </span>
+                </div>
+                <div class="name">
+                    Nuevo Punto de retiro
+                </div>
+                <span class="spacer"></span>
+                <button mat-raised-button [mat-dialog-close]="{resp:'cancelar'}"> 
+                    <span class="material-icons icono">
+                        close
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 5px;">
+        <div class="col-lg-12">
+            <form [formGroup]="puntoRetiro" (ngSubmit)="guardar()" #formPuntoRetiro="ngForm">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre Punto de retiro</mat-label>
+                    <input matInput formControlName="nombrePunto" placeholder="Nombre del Punto de retiro">
+                    <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="nombreRetiro" placeholder="Nombre de Contacto">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Dirección</mat-label>
+                    <input matInput formControlName="direccionRetiro" placeholder="Direccion de retiro">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                </mat-form-field>
+
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Comuna Retiro</mat-label>
+                    <mat-select formControlName="comunaRetiro">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let comuna of comunas" [value]="comuna.id">
+                            {{comuna.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+
+                <ng-select placeholder="Comuna de retiro" formControlName="comunaRetiro" [appearance]="'outline'">
+                    <ng-option *ngFor="let item of comunas" [value]="item.id">{{item.name}}</ng-option>
+                </ng-select>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Teléfono</mat-label>
+                    <input matInput formControlName="telefonoRetiro" placeholder="Teléfono de contacto">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Referencia</mat-label>
+                    <input matInput formControlName="referenciaRetiro" maxlength="256" placeholder="Ej: al lado de la casa azul de 2 pisos">
+                    <mat-hint align="start"><strong>Referencia de retiro</strong> </mat-hint>
+                    <mat-hint align="end">{{puntoRetiro.get('referenciaRetiro').value.length}} / 256</mat-hint>
+                </mat-form-field>
+
+                <!-- <div>
+                    <button mat-raised-button matStepperNext>Siguiente</button>
+                </div> -->
+            </form>
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" form="ngForm" (click)="formPuntoRetiro.onSubmit(undefined)">Guardar</button>
+    <button mat-raised-button [mat-dialog-close]="{resp:'cancelar'}">Cancelar</button>
+</div>

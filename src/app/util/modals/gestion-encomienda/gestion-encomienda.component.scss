@@ -1,0 +1,34 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 0 0 10px 0;
+    .icono {
+        font-size: 30px;
+    }
+}
+
+.name {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.btnPagado {
+    padding: 5px 10px 5px 10px;
+    border: unset;
+    border-radius: 5px;
+    border-right: 2px solid green;
+    border-bottom: 2px solid green;
+    background: mediumseagreen;
+}
+
+.pagadoOk {
+    width: 40px;
+}

@@ -1,0 +1,108 @@
+<div [ngSwitch]="sistemas" style="background: #243859; height: 100%;">
+    <mat-drawer-container class="example-container" *ngSwitchCase="'sistema'">
+        <mat-drawer #drawer [mode]="'over'" class="drawer">
+            <mat-toolbar>
+                <mat-toolbar-row class="toolbar">
+                    <div class="nombre-empresa">
+                        <span class="material-icons bike">
+                        pedal_bike
+                        </span>
+                        <p class="nombre">Logística sustentable</p>
+                    </div>
+                    <span class="example-spacer"></span>
+                    <button class="btnToggle" (click)="drawer.toggle()">
+                      <mat-icon aria-hidden="false"> arrow_back </mat-icon>       
+                    </button>
+                </mat-toolbar-row>
+            </mat-toolbar>
+            <div class="infoUser">
+                <div class="nombre">
+                    <p>{{usuario.nombre}}</p>
+                </div>
+                <div class="correo">
+                    <p>{{usuario.correo}}</p>
+                </div>
+            </div>
+            <div class="conten-img-user">
+                <div class="img-user">
+                    <img [src]="usuario.img" class="img-gmail" alt="" *ngIf="usuario.img !== ''">
+                    <span class="material-icons" *ngIf="usuario.img === ''">store </span>
+                </div>
+            </div>
+            <div class="menu">
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let item of menuFull">
+                        <mat-expansion-panel-header class="header-expansion">
+                            <mat-panel-title>
+                                <mat-icon aria-hidden="false" class="icono"> {{item.icon}} </mat-icon>
+                            </mat-panel-title>
+                            <mat-panel-description class="name">
+                                {{item.display}}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <div *ngFor="let child of item.child">
+                            <div class="item-menu" (click)="activarRuta(child.url)">
+                                <span class="material-icons icon-menu">{{child.icon}}</span>
+                                <div class="name-menu">
+                                    {{child.display}}
+                                </div>
+                            </div>
+                        </div>
+                    </mat-expansion-panel>
+                </mat-accordion>
+                <!-- 
+                <div *ngFor="let item of menuFull">
+                    <div class="item-menu" (click)="activarRuta(item)">
+                        <span class="material-icons icon-menu">{{item.categoria.icono}}</span>
+                        <div class="name-menu">
+                            {{item.categoria.nombre}}
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+        </mat-drawer>
+        <mat-drawer-content>
+            <mat-toolbar color="primary">
+                <mat-toolbar-row>
+                    <div class="div-btn-toggle">
+                        <button class="btnToggle" (click)="drawer.toggle()" *ngIf="isAdmin">
+                        <mat-icon aria-hidden="false"> reorder </mat-icon>          
+                      </button>
+                    </div>
+                    <span class="example-spacer"></span>
+                    <button mat-icon-button [matMenuTriggerFor]="menuUsuario" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                    <mat-menu #menuUsuario="matMenu">
+
+                        <button mat-menu-item (click)="activarRuta('encomienda/vista/unica')">
+                            <mat-icon>shopping_cart</mat-icon>
+                            <span>Enviar única</span>
+                          </button>
+                        <button mat-menu-item (click)="activarRuta('encomienda/vista/masiva')">
+                            <mat-icon>shopping_cart</mat-icon>
+                            <span>Enviar Masiva</span>
+                          </button>
+                        <button mat-menu-item (click)="activarRuta('encomienda/vista/ordenes')">
+                            <mat-icon>zoom_in</mat-icon>
+                            <span>Mis Ordenes</span>
+                          </button>
+                        <mat-divider></mat-divider>
+
+                        <button (click)="cerrarSesion()" mat-menu-item>
+                          <mat-icon>power_settings_new</mat-icon>
+                          <span>Cerra Sesión</span>
+                        </button>
+                    </mat-menu>
+                </mat-toolbar-row>
+            </mat-toolbar>
+            <div class="contenido">
+                <div class="container-fluid">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

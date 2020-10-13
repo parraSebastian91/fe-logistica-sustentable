@@ -1,0 +1,60 @@
+.logo-awkn {
+    width: 365px;
+}
+
+.contenedor {
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid;
+}
+
+.direccion-retiro {
+    h1,
+    h2 {
+        margin: 10px 0 0 0;
+    }
+    border: 2px solid;
+    border-radius: 10px;
+    width: 490px;
+    margin-left: 30px;
+}
+
+.encomiendas {
+    margin: 20px 0 0;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-list-base .mat-list-item.mat-list-item-with-avatar,
+.mat-list-base .mat-list-option.mat-list-item-with-avatar {
+    height: 40px;
+}
+
+.valor-total {
+    font-size: x-large;
+    margin: 10px;
+    font-weight: 500;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.titulo {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 0 0 10px 0;
+    margin: 0 0 20px 0;
+    .name {
+        font-size: x-large;
+        margin: 4px;
+        font-weight: 500;
+    }
+    .icono {
+        font-size: 30px;
+    }
+}

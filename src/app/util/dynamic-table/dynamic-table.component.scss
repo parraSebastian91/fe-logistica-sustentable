@@ -1,0 +1,54 @@
+.btn-search-hdr {
+    background: rgba(0, 0, 0, 0);
+    border: 0;
+    color: gray;
+}
+
+tr.mat-row {
+    height: 30px;
+}
+
+.mat-row:hover {
+    background: rgb(173, 173, 173, 0.5);
+}
+
+.mat-cell:hover {
+    background: rgb(173, 173, 173, 1);
+}
+
+.table-row {
+    overflow: auto;
+}
+
+.mat-header-cell,
+.mat-footer-row {
+    font-weight: 800;
+}
+
+.span-hdr {
+    // float: left;
+}
+
+table {
+    width: 100%;
+    // height: 30px;
+    table-layout: fixed;
+}
+
+.mensaje {
+    height: 80px;
+    background: rgba(0, 137, 161, 0.568);
+    width: 98%;
+    border: 2px solid rgba(0, 137, 161, 0.1);
+    border-radius: 10px;
+    margin: 15px;
+    display: inline-flex;
+    padding: 22px;
+    .icono {
+        margin-right: 18px;
+    }
+}
+
+.boton-icon {
+    font-size: 30px;
+}

@@ -1,0 +1,7 @@
+<mat-nav-list>
+    <a [routerLink]="" queryParamsHandling="preserve" mat-list-item (click)="asignarEstado(item)" *ngFor="let item of listEstados">
+        <img mat-list-icon [src]="item.icon" alt="">
+        <span mat-line>{{item.name}}</span>
+        <span mat-line>{{item.desc}}</span>
+    </a>
+</mat-nav-list>

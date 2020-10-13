@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~@ng-select/ng-select/themes/material.theme.css";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.list-shop.mat-list-item {
+    height: 35px;
+}
+
+.filtro-container .mat-dialog-container {
+    overflow: initial;
+}
+
+.filtro-content .mat-dialog-content {
+    display: initial;
+}
+
+.top-padding .mat-dialog-container {
+    padding-top: 10px;
+}
+
+.body-style {
+    // padding: 0px 1%;
+    max-height: 740px;
+}
+
+.mat-datepicker-content .mat-calendar {
+    // width: unset !important;
+    height: unset !important;
+}
+
+textarea {
+    resize: none;
+}

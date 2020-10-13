@@ -1,0 +1,16 @@
+.exportar {
+    margin: 10px;
+}
+
+.titulo {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 0 0 10px 0;
+    .name{
+        font-size: x-large;
+        padding: 5px;
+    }
+    .icono {
+        font-size: 30px;
+    }
+}

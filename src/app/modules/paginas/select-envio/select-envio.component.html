@@ -1,0 +1,62 @@
+<div class="container-fluid contenedor">
+
+    <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2 d-flex justify-content-center">
+            <div class="logo-content">
+                <div class="img-content">
+                    <img src="assets/Logo Awkn.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5"></div>
+    </div>
+
+    <div class="row" [@ingreso]="estadoLogin">
+        <div class="col-lg-2 col-md-1"></div>
+        <div class="col-lg-4 col-md-5 d-flex justify-content-center card-style" (click)="redireccionar(1)">
+            <div class="user-card" (mouseover)="isHover(1)" (mouseout)="isOut(1)" [@seleccion]="isSelected">
+                <div class="contenedor-select">
+                    <div class="img-select">
+                        <img src="assets/caja.png" alt="">
+                    </div>
+                    <div class="titulo">
+                        <span class="desc">
+                            Envío único
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-5 d-flex justify-content-center" (click)="redireccionar(2)">
+            <div class="user-card" (mouseover)="isHover(2)" (mouseout)="isOut(2)" [@seleccion2]="isSelected2">
+                <div class="contenedor-select">
+                    <div class="img-select">
+                        <img src="assets/cajas.png" alt="">
+                    </div>
+                    <div class="titulo">
+                        <span class="desc">
+                            Envío Múltiple
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-1">
+
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-lg-5"></div>
+        <div class="col-lg-2 d-flex justify-content-center">
+            <div class="logo-content">
+                <div class="img-content">
+                    <img src="assets/Logo Awkn.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5"></div>
+    </div> -->
+
+</div>

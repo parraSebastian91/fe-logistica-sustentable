@@ -1,0 +1,21 @@
+<div class="content-filtro">
+    <h1 mat-dialog-title>Filtro columna: {{data.process | uperCaseFirst}}</h1>
+    <div mat-dialog-content>
+        <p>Elija o escriba un filtro</p>
+        <div>
+            <ng-select [items]="selectData" placeholder="Seleccione Filtro" [(ngModel)]="filtro" bindLabel="name" [multiple]="data.tipo !== 'number'" [closeOnSelect]="data.tipo !== 'string'">
+                <ng-template ng-option-tmp let-item="item">
+                    <input [checked]="filtro.indexOf(item) > -1" type="checkbox"> {{item}}
+                </ng-template>
+            </ng-select>
+            <mat-form-field *ngIf="data.tipo === 'number'">
+                <input matInput #input placeholder="Ingresar Filtro" [(ngModel)]="filtroText" (keyup)="validar(filtroText)">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="onCancel()">Cancelar</button>
+        <button mat-button (click)="aplicarFiltro()">Aplicar</button>
+        <button mat-button (click)="onResetear()">Resetear</button>
+    </div>
+</div>

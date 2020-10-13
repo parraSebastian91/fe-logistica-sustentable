@@ -1,0 +1,51 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+.menu-encomienda {
+    float: right;
+}
+
+.estado {
+    width: 55px;
+    margin: 10px 0 0 10px;
+}
+
+.order-container {
+    margin: 15px;
+    border: 1px solid darkgrey;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.codigo-seg,
+.valor-total {
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.list-ordenes {
+    overflow-y: scroll;
+    height: 800px;
+}
+
+.seguimiento {
+    display: flex;
+}
+
+.fechas {
+    display: flex;
+}
+
+.guion {
+    margin: 0 5px 0 5px;
+}
+
+.mat-list-base {
+    width: 100%;
+}
+
+.mat-nav-list .mat-list-item {
+    height: 150px;
+}

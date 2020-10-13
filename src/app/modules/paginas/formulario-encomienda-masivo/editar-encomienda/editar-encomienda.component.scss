@@ -1,0 +1,28 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    border-bottom: 1px solid;
+    padding: 0 0 10px 0;
+    .icono {
+        font-size: 30px;
+    }
+    .name {
+        font-size: 25px;
+        padding: 5px;
+    }
+}
+
+.h3-valor{
+    font-size: 25px;
+    margin-right: 15px;
+    .costo{
+        font-weight: 600;
+    }
+}

@@ -1,0 +1,181 @@
+<div class="container-fluid" id="encomienda">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="titulo">
+                <div class="icon">
+                    <span class="material-icons icono">
+                        assignment
+                    </span>
+                </div>
+                <div class="name">
+                    Encomienda Nro: {{data.fila.cod_seguimiento}}
+                </div>
+
+                <span class="spacer"></span>
+                <button mat-raised-button (click)="cerrar()">
+                    <span class="material-icons icono">
+                        close
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="formEncomienda" style="width: 100%;" (ngSubmit)="guardar()" #encomiendaForm="ngForm">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="seccion">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="nombre-seccion">Retiro</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Contacto</mat-label>
+                                <input matInput placeholder="Nombre del Contacto" formControlName="contactoRetiro">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Teléfono</mat-label>
+                                <input matInput placeholder="Telefono contacto" formControlName="telefonoRetiro">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Dirección</mat-label>
+                                <input matInput placeholder="Direccion de retiro" formControlName="direccionRetiro">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="seccion">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="nombre-seccion">Despacho</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Contacto</mat-label>
+                                <input matInput placeholder="Nombre del Contacto" formControlName="contactoDespacho">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Teléfono</mat-label>
+                                <input matInput placeholder="Telefono contacto" formControlName="telefonoDespacho">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Dirección</mat-label>
+                                <input matInput placeholder="Direccion de retiro" formControlName="direccionDespacho">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="seccion">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="nombre-seccion">Encomienda</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Descripción</mat-label>
+                                <input matInput placeholder="Descripción de Encomienda" formControlName="descripcion">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Alto</mat-label>
+                                        <input matInput placeholder="Alto encomienda" formControlName="alto">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Ancho</mat-label>
+                                        <input matInput placeholder="Ancho encomienda" formControlName="ancho">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Largo</mat-label>
+                                        <input matInput placeholder="Largo encomienda" formControlName="largo">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-lg-3">
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Peso</mat-label>
+                                        <input matInput placeholder="Peso encomienda" formControlName="peso">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Valor total</mat-label>
+                                <input matInput placeholder="Valor Total" formControlName="valorTotal" type="number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ng-select placeholder="Quien Retira" formControlName="retiro">
+                    <ng-option *ngFor="let item of repartidores" [value]="item.id_usu">{{item.nombre}}
+                        {{item.apellido_pa}} {{item.apellido_ma}}</ng-option>
+                </ng-select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <ng-select placeholder="Quien Despacha" formControlName="despacho">
+                    <ng-option *ngFor="let item of repartidores" [value]="item.id_usu">{{item.nombre}}
+                        {{item.apellido_pa}} {{item.apellido_ma}}</ng-option>
+                </ng-select>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+<div mat-dialog-actions style="display: flex;">
+    <button mat-raised-button color="primary" form="ngForm"
+        (click)="encomiendaForm.onSubmit(undefined)">Confirmar</button>
+    <button mat-raised-button color="primary" form="ngForm" (click)="descargar()">Ver PDF</button>
+    <span class="spacer"></span>
+    <div *ngIf="data.fila.pagado === 'No'">
+        <button class="btnPagado" (click)="pagar()">Pagar</button>
+    </div>
+    <div *ngIf="data.fila.pagado === 'Sí'">
+        <img src="assets/icon/check.svg" alt="" class="pagadoOk" [tooltip]="HtmlContent" content-type="template">
+    </div>
+</div>
+
+<ng-template #HtmlContent>
+    <div class="titulo">Encomienda<b> Pagada</b></div>
+    <div class="descripcion">Pago Confirmado</div>
+</ng-template>

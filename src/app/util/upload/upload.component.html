@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 drop">
+            <div class="custom-dropzone" ngx-dropzone (change)="onSelect($event)">
+                <ngx-dropzone-label>
+                    <div>
+                        <h2>{{msjUpload}}</h2>
+                    </div>
+                </ngx-dropzone-label>
+                <ngx-dropzone-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove($event)" style="z-index: -20;">
+                    <ngx-dropzone-label> {{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                </ngx-dropzone-preview>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6">
+            <button class="btnCustom verdeExcel" (click)="descargarExcel()"> 
+                <span class="material-icons icono">
+                    cloud_download
+                </span> 
+                <div class="btnNombre">Descargar Excel tipo</div>
+            </button>
+        </div>
+        <div class="col-lg-3">
+        </div>
+    </div>
+</div>

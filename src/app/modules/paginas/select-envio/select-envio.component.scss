@@ -1,0 +1,121 @@
+$colorUno: #E4E3E3;
+$colorDos:#84a9ac;
+$colorTres:#3b6978;
+$colorCuatro:#204051;
+.contenedor {
+    // padding-top: 80px;
+    background: #243859;
+    height: 100%;
+}
+
+.contenedor-select {
+    height: 100%;
+    width: 100%;
+    border: 2px $colorUno solid;
+}
+
+.user-card {
+    height: 400px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: $colorDos;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    color: white;
+    .img-select {
+        margin: 34px 75px 0px 75px;
+        img {
+            width: 170px;
+        }
+    }
+    .titulo {
+        margin: 50px 50px;
+        padding: 10px;
+        text-align: center;
+        .desc {
+            font-size: 33px;
+        }
+    }
+}
+
+.logo-content {
+    margin: 5em 0 0 0;
+    background: $colorDos;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    .img-content {
+        width: 200px;
+        height: 200px;
+        background: white;
+        border-radius: 50%;
+        border: 2px solid $colorCuatro;
+        margin: 5px;
+        img {
+            width: 180px;
+            margin: 35px 0 0 8px;
+        }
+    }
+}
+
+@media (max-height: 700px) {
+    .card-style {
+        margin: 10px;
+    }
+    .user-card {
+        height: 300px;
+        width: 250px;
+        margin-top: auto;
+        margin-bottom: auto;
+        background: $colorDos;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+        color: white;
+        .img-select {
+            margin: 34px 75px 0px 75px;
+            img {
+                width: 100px;
+            }
+        }
+        .titulo {
+            margin: 50px 50px;
+            padding: 10px;
+            text-align: center;
+            .desc {
+                font-size: 22px;
+            }
+        }
+    }
+    .logo-content {
+        margin: 5em 0 0 0;
+        background: $colorDos;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        .img-content {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border-radius: 50%;
+            border: 2px solid $colorCuatro;
+            margin: 5px;
+            img {
+                width: 88px;
+                margin: 17px 0 0 4px;
+            }
+        }
+    }
+}
