@@ -65,8 +65,8 @@ import { PerfilComponent } from './modules/mantenedor/perfil/perfil.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ListaUsuariosComponent,
-    PerfilComponent,
+    // ListaUsuariosComponent,
+    // PerfilComponent,
     // FormatNumberPipe,
     // FormularioEncomiendaComponent,
     // PuntoRetiroComponent,
