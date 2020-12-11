@@ -10,7 +10,6 @@ export class ListaUsuariosComponent implements OnInit {
   columnasQuitadas = [];
   listaUsuarios = [];
   aliniacionColumna = [];
-  anchoColumna = {};
   accionFila = ['edit', 'see'];
   seleccionFila = false;
 
