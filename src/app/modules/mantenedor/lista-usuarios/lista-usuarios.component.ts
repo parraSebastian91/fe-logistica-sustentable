@@ -9,6 +9,10 @@ export class ListaUsuariosComponent implements OnInit {
 
   constructor() { }
 
+  listUsuarios = [];
+  anchoColumna = {
+  };
+
   ngOnInit(): void {
   }
 

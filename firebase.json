@@ -1,14 +1,16 @@
 {
-    "hosting": {
-        "public": "dist/logisticaSustentable",
-        "ignore": [
-            "firebase.json",
-            "**/.*",
-            "**/node_modules/**"
-        ],
-        "rewrites": [{
-            "source": "**",
-            "destination": "/index.html"
-        }]
-    }
+  "hosting": {
+    "public": "dist/logisticaSustentable",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

@@ -1,1 +1,22 @@
-<p>lista-usuarios works!</p>
+<mat-card class="example-card">
+    <mat-card-header class="card-header">
+        <div mat-card-avatar class="example-header-image">
+            <span class="material-icons icono">
+                assignment
+            </span>
+        </div>
+        <mat-card-title>Lista usuarios registrados</mat-card-title>
+        <!-- <mat-card-subtitle>Ingrese los datos solicitados</mat-card-subtitle> -->
+    </mat-card-header>
+    <mat-card-content class="card-content">
+        <div class="row">
+            <div class="col-md-12">
+                <app-dynamic-table [quitarColumna]="[]"
+                    [checkRow]="false" [data]="listUsuarios" (seeRow)="verPerfil($event)"
+                    [AnchoColumnas]="anchoColumna" 
+                    [aliniacionColumnas]="aliniacionColumna">
+                </app-dynamic-table>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>
