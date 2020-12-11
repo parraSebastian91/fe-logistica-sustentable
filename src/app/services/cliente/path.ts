@@ -69,6 +69,16 @@ const path = {
         rutaRemota: '/usuario/rol/3',
         rutaLocal: '',
     },
+    getUsuarioByCorreo: {
+        tipo: 'get',
+        rutaRemota: '/usuario/mail/{correo}',
+        rutaLocal: '',
+    },
+    getListUsuarios: {
+        tipo: 'get',
+        rutaRemota: '/usuario/',
+        rutaLocal: '',
+    },
     setRepartidores: {
         tipo: 'patch',
         rutaRemota: '/encomienda/:id:',

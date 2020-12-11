@@ -73,10 +73,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     // LoaderComponent
   ],
   imports: [
-    PipesModule,
-    UtilModule,
-    CommonModule,
     PaginasRoutingModule,
+    CommonModule,
+    UtilModule,
+    PipesModule,
     MatSliderModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -110,11 +110,11 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     NgxDropzoneModule,
     NgSelectModule,
     FontAwesomeModule,
-    HttpClientModule,
     MatMenuModule,
+    MatDatepickerModule,
+    HttpClientModule,
     MatSnackBarModule,
     GestionModule,
-    MatDatepickerModule,
     AgmCoreModule.forRoot({
       apiKey: environment.firebaseConfig.apiKey,
       libraries: ['places']
