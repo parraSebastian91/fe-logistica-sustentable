@@ -30,6 +30,7 @@ export interface EncomiendaRow {
   styleUrls: ['./editar-encomienda.component.scss']
 })
 export class EditarEncomiendaComponent implements OnInit {
+  
   @ViewChild('formEncomienda', { static: false }) formEncomienda: FormGroupDirective;
   isValorizado = false;
   comunas: any = [];

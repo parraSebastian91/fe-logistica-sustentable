@@ -8,6 +8,8 @@ import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/materia
 import * as _moment from 'moment';
 // tslint:disable-next-line:no-duplicate-imports
 import { default as _rollupMoment, Moment } from 'moment';
+import { MatDialog } from '@angular/material/dialog';
+import { MoEditPagoComponent } from './mo-edit-pago/mo-edit-pago.component';
 
 const moment = _rollupMoment || _moment;
 
@@ -55,7 +57,7 @@ export class PagosComponent implements OnInit {
     comuna_destinatario: 180,
     telefono_destinatario: 180,
     pagado_despacho: 100,
-    despacho_pagado: 80,
+    despacho_pagado: 110,
     retiro_pagado: 80,
     pagado_retiro: 100,
     valor_total: 100
@@ -86,6 +88,7 @@ export class PagosComponent implements OnInit {
   arrayPagoNormales: any[];
   arrayPagoEspeciales: any[];
   constructor(
+    public dialog: MatDialog,
     private cliente: ClienteService,
   ) { }
 
@@ -127,6 +130,10 @@ export class PagosComponent implements OnInit {
   }
 
   buscar() {
+    this.pagoNormal = 0;
+    this.pagoEspecial = 0;
+    this.arrayPagoNormales = [];
+    this.arrayPagoEspeciales = [];
     if (this.pagosForm.valid) {
       const fechaDesde = this.pagosForm.get('fechaInicial').value;
       const fechaHasta = this.pagosForm.get('fechaFinal').value;
@@ -146,7 +153,8 @@ export class PagosComponent implements OnInit {
           let normales = [];
           t.map(m => {
             // const tienda = this.listaTiendas.find(f => f.id === m.id_dir_rem);
-            return {
+            const fila = {
+              id: m.id_enc,
               estado: m.seguimiento,
               cod_seguimiento: m.cod_seguimiento,
               pagado: ((m.pagado) ? 'Sí' : 'No'),
@@ -175,6 +183,21 @@ export class PagosComponent implements OnInit {
               envio_especial: m.envio_especial,
               valor_total: m.valor_total
             };
+
+            if (m.pagado_despacho === -1 || m.pagado_despacho === null) {
+              fila.pagado_despacho = 'No Aplica';
+              fila.despacho_pagado = 'No Aplica';
+            } else {
+              fila.despacho_pagado = ((m.despacho_pagado) ? 'Sí' : 'No');
+            }
+
+            if (m.pagado_retiro === -1 || m.pagado_retiro === null) {
+              fila.pagado_retiro = 'No Aplica';
+              fila.retiro_pagado = 'No Aplica';
+            } else {
+              fila.retiro_pagado = ((m.retiro_pagado) ? 'Sí' : 'No');
+            }
+            return fila;
           }).forEach(d => {
             if (d.envio_especial) {
               this.totalEspeciales += d.valor_total;
@@ -200,12 +223,70 @@ export class PagosComponent implements OnInit {
       .catch(e => console.log(e));
   }
 
+  pagoNormal = 0;
+  pagoEspecial = 0;
+
   pagoNormales(evt) {
+    this.pagoNormal = 0;
     this.arrayPagoNormales = evt;
+    this.arrayPagoNormales.forEach(f => {
+      this.pagoNormal += ((f.pagado_despacho === 'No Aplica') ? 0 : f.pagado_despacho) + ((f.pagado_retiro === 'No Aplica') ? 0 : f.pagado_retiro)
+    })
   }
 
   pagoEspeciales(evt) {
+    this.pagoEspecial = 0;
     this.arrayPagoEspeciales = evt;
+    this.arrayPagoEspeciales.forEach(f => {
+      this.pagoEspecial += (((f.pagado_despacho === 'No Aplica') ? 0 : f.pagado_despacho) + ((f.pagado_retiro === 'No Aplica') ? 0 : f.pagado_retiro))
+    })
+  }
+
+  realizarPago() {
+
+
+
+    const fullArray = this.arrayPagoNormales.concat(this.arrayPagoEspeciales);
+    if (!fullArray || fullArray.length === 0) {
+      console.log('seleccionar al menos uno')
+      return;
+    }
+    fullArray.forEach(f => {
+      const cuerpo = {
+        servicio: 'updEncomienda',
+        body: {
+          id_usu_retiro: null,
+          id_usu_despacho: null,
+          peso: null,
+          pagado_retiro: null,
+          pagado_despacho: null,
+          km_recorrido: 0,
+          pagado: false,
+          envio_especial: false,
+          retiro_pagado: true,
+          despacho_pagado: true
+        },
+        bindPath: {
+          id_encomienda: f.id
+        }
+      }
+      cuerpo.body.pagado_retiro = ((f.pagado_retiro === 'No Aplica') ? null : f.pagado_retiro)
+      cuerpo.body.pagado_despacho = ((f.pagado_despacho === 'No Aplica') ? null : f.pagado_despacho)
+      cuerpo.body.envio_especial = f.envio_especial
+      cuerpo.body.pagado = ((f.pagado === 'No') ? false : true);
+      cuerpo.body.retiro_pagado = ((f.retiro_pagado === 'No') ? false : true)
+      cuerpo.body.despacho_pagado = ((f.despacho_pagado === 'No') ? false : true)
+      this.cliente.callServices(cuerpo)
+        .then(t => {
+          this.buscar()
+          console.log(t)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      console.log(f, cuerpo)
+    });
+
   }
 
   realizarPagoNormal() {
@@ -236,7 +317,6 @@ export class PagosComponent implements OnInit {
   }
 
   realizarPagoEspecial() {
-
     const cuerpo = {
       servicio: '',
       body: {
@@ -260,7 +340,15 @@ export class PagosComponent implements OnInit {
       cuerpo.body.pagado = ((f.pagado === 'No') ? false : true);
       console.log(f)
     });
+  }
 
+  editarPago(evt) {
+    const dialog = this.dialog.open(MoEditPagoComponent, {
+      width: '600px',
+      data: evt
+    });
+    dialog.afterClosed().subscribe(result => {
+    })
   }
 
 }

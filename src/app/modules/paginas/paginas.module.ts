@@ -56,6 +56,7 @@ import { environment } from 'src/environments/environment';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { PagosComponent } from './pagos/pagos.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MoEditPagoComponent } from './pagos/mo-edit-pago/mo-edit-pago.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     SelectEnvioComponent,
     OrdenesComponent,
     PagosComponent,
+    MoEditPagoComponent,
     // LoaderComponent
   ],
   imports: [

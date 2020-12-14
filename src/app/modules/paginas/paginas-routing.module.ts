@@ -6,6 +6,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SelectEnvioComponent } from './select-envio/select-envio.component';
 import { OrdenesComponent } from './ordenes/ordenes.component';
 import { PagosComponent } from './pagos/pagos.component';
+import { MoEditPagoComponent } from './pagos/mo-edit-pago/mo-edit-pago.component';
 
 
 const routes: Routes = [
@@ -38,6 +39,10 @@ const routes: Routes = [
         loadChildren: () => import('src/app/modules/mantenedor/mantenedor.module').then(m => m.MantenedorModule),
       },
     ],
+  },
+  {
+    path: 'mo-edit-pago',
+    component: MoEditPagoComponent
   },
   {
     path: 'seleccion-vista',

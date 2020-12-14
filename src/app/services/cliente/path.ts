@@ -98,7 +98,13 @@ const path = {
         tipo: 'post',
         rutaRemota: '/encomienda/repartidor/',
         rutaLocal: '',
+    },
+    updEncomienda: {
+        tipo: 'put',
+        rutaRemota: '/encomienda/:id_encomienda:',
+        rutaLocal: '',
     }
+
 };
 
 export {

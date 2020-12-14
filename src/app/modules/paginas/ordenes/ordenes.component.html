@@ -15,17 +15,9 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <!--<span class="spacer"></span>
-            <mat-form-field appearance="outline">
-                <mat-label>Busqueda</mat-label>
-                <input type="number" matInput placeholder="Codigo de seguimiento" (ngModelChange)="filter($event)" [formControl]="inpFiltro">
-                <mat-icon matSuffix>search</mat-icon>
-            </mat-form-field>-->
         </div>
     </div>
     <div class="row">
-        <!-- <div class="col-lg-1">
-        </div> -->
         <mat-nav-list>
             <mat-list-item class="order-container" *ngFor="let item of ordenes" (click)="verOrden(item)">
                 <div>
@@ -73,10 +65,6 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <span class="spacer"></span>
-
-                                    <!-- <button mat-icon-button [matMenuTriggerFor]="menuOrden" aria-label="Example icon-button with a menu" class="menu-encomienda">
-                                        <mat-icon>more_vert</mat-icon>
-                                      </button> -->
                                     <mat-menu #menuOrden="matMenu">
                                         <button (click)="verDetalle(item)" mat-menu-item>
                                           <mat-icon>zoom_in</mat-icon>
@@ -93,74 +81,7 @@
                     </div>
                 </div>
             </mat-list-item>
-        </mat-nav-list>
-        <!--<div class="col-lg-12 list-ordenes ">
-            <div class="order-container" *ngFor="let item of ordenes">
-                <div class="row">
-                    <div class="col-lg-12 head-orden">
-                        <div class="seguimiento">
-                            <div>
-                                <span [ngStyle]="getEstado(item.seguimiento)"><mat-icon>fiber_manual_record</mat-icon></span>
-                            </div>
-                            <div>
-                                Codigo: <span class="codigo-seg">{{item.cod_seguimiento}}</span>
-                            </div>
-                        </div>
-
-                        <div class="fechas">
-                            <div class="creacion">
-                                Fecha creación: {{item.fecha_inicio | date:'dd/MM/yyyy HH:mm'}}
-                            </div>
-                            <div>
-                                <span class="guion">-</span>
-                            </div>
-                            <div class="entrega">
-                                Fecha entrega: {{item.fecha_fin | date:'dd/MM/yyyy HH:mm'}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="estado">
-                                    <app-estados [estados]="item.seguimiento"></app-estados>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="row">
-                                    <div class="col-lg-12"><span class="descripcion">{{item.descripcion}}</span></div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <span class="valor-total"> $ {{item.valor_total | formatNumber}}</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <span class="spacer"></span>
-<button mat-icon-button [matMenuTriggerFor]="menuOrden" aria-label="Example icon-button with a menu" class="menu-encomienda">
-                                    <mat-icon>more_vert</mat-icon>
-                                  </button> 
-        <mat-menu #menuOrden="matMenu">
-            <button (click)="verDetalle(item)" mat-menu-item>
-                                      <mat-icon>zoom_in</mat-icon>
-                                      <span>Ver Detalle</span>
-                                    </button>
-            <button mat-menu-item>
-                                        <mat-icon>help</mat-icon>
-                                        <span>Necesito ayuda</span>
-                                      </button>
-        </mat-menu>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>->
- <div class="col-lg-1">
-        </div> -->
+        </mat-nav-list>     
     </div>
 
 </div>
