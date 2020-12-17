@@ -6,7 +6,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   {
-    path: 'mi-perfil',
+    path: 'mi-perfil/:id',
     component: PerfilComponent,
   },
   {

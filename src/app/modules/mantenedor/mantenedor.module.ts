@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MantenedorRoutingModule } from './mantenedor-routing.module';
@@ -38,10 +38,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
-  declarations: [ListaUsuariosComponent],
+  declarations: [
+    ListaUsuariosComponent,
+    PerfilComponent
+  ],
   imports: [
     CommonModule,
     MantenedorRoutingModule,
@@ -82,6 +86,10 @@ import { ListaUsuariosComponent } from './lista-usuarios/lista-usuarios.componen
     FontAwesomeModule,
     MatMenuModule,
     MatDatepickerModule,
-  ]
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
+  ],
 })
 export class MantenedorModule { }

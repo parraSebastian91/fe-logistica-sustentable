@@ -22,7 +22,7 @@
                             </div>
                             <div *ngSwitchDefault>
                                 <span class="span-hdr"> {{item | uperCaseFirst}} </span>
-                                <button (click)="FiltrarBy(item)" class="btn-search-hdr" *ngIf="item!=='estado' && !buscable">
+                                <button (click)="FiltrarBy(item)" class="btn-search-hdr" *ngIf="item!=='estado'">
                                     <fa-icon [icon]="getFilter(item)"></fa-icon>
                                 </button>
                             </div>

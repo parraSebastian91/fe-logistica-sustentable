@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
+import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
@@ -36,7 +36,6 @@ export class GestionEncomiendaComponent implements OnInit {
 
   ngOnInit(): void {
     const fila = this.data.fila;
-    console.log(fila)
     this.formEncomienda = new FormGroup({
       contactoRetiro: new FormControl(fila.contacto_retiro),
       telefonoRetiro: new FormControl(fila.telefono_retiro),
