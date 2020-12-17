@@ -13,6 +13,12 @@ export class PerfilComponent implements OnInit {
   formPerfil: FormGroup;
   idCliente: Number;
 
+  roles = {
+    admin: true,
+    comercio: false,
+    repartidor: false
+  }
+
   constructor(
     private rutaActiva: ActivatedRoute,
     private cliente: ClienteService,
