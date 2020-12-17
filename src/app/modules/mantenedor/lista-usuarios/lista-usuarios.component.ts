@@ -70,7 +70,8 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   editarUsuario(evt) {
-    this.router.navigate(['encomienda','vista','mantenedor','mi-perfil',evt.id])
+    console.log(evt)
+    this.router.navigate(['encomienda','vista','mantenedor','mi-perfil',evt.usuario])
   }
 
   exportarUsuarios() {
