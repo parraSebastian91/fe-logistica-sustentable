@@ -174,7 +174,7 @@
 
                         <div style="margin-top: 10px;">
                             <button mat-raised-button matStepperPrevious>Atrás</button>
-                            <button mat-raised-button matStepperNext (click)="asignarRetrio()">Seguiente</button>
+                            <button mat-raised-button matStepperNext (click)="asignarRetrio()">Siguiente</button>
                         </div>
                     </mat-step>
 
@@ -230,7 +230,7 @@
                             </mat-form-field>
                             <div>
                                 <button mat-raised-button matStepperPrevious>Atrás</button>
-                                <button mat-raised-button matStepperNext (click)="setDespacho()">Seguiente</button>
+                                <button mat-raised-button matStepperNext (click)="setDespacho()">Siguiente</button>
                             </div>
                         </form>
                     </mat-step>
@@ -261,7 +261,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Ancho</mat-label>
+                                        <mat-label>Ancho (cm)</mat-label>
                                         <input matInput formControlName="ancho" placeholder="Ancho en Centímetros"
                                             min="0" type="number">
                                         <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
@@ -269,7 +269,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Largo</mat-label>
+                                        <mat-label>Largo (cm)</mat-label>
                                         <input matInput formControlName="largo" placeholder="Largo en Centímetros"
                                             min="0" type="number">
                                         <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
@@ -277,7 +277,7 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <mat-form-field appearance="outline">
-                                        <mat-label>Peso</mat-label>
+                                        <mat-label>Peso (cm)</mat-label>
                                         <input matInput formControlName="peso" placeholder="Peso de encomienda" min="0"
                                             type="number">
                                         <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
@@ -291,7 +291,7 @@
                             <div>
                                 <button mat-raised-button matStepperPrevious>Atrás</button>
                                 <button mat-raised-button matStepperNext
-                                    (click)="calcularEncomienda()">Seguiente</button>
+                                    (click)="calcularEncomienda()">Siguiente</button>
                                 <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
                             </div>
                         </form>

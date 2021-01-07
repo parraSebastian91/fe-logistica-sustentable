@@ -34,7 +34,7 @@ export class PuntoRetiroComponent implements OnInit {
       direccionRetiro: new FormControl('', [Validators.required]),
       comunaRetiro: new FormControl('', [Validators.required]),
       telefonoRetiro: new FormControl('', [Validators.required]),
-      referenciaRetiro: new FormControl('', [Validators.required]),
+      referenciaRetiro: new FormControl(''),
     });
     this.getAllComuna();
   }

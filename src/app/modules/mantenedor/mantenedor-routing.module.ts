@@ -8,6 +8,10 @@ const routes: Routes = [
   {
     path: 'mi-perfil/:id',
     component: PerfilComponent,
+  }, 
+  {
+    path: 'mi-perfil',
+    component: PerfilComponent,
   },
   {
     path: 'lista-usuarios',

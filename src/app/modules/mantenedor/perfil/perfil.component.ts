@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation, ViewChild, Inject } from '@angula
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -24,10 +25,14 @@ export class PerfilComponent implements OnInit {
     private rutaActiva: ActivatedRoute,
     private cliente: ClienteService,
     private router: Router,
+    private usuario: UsuarioService
   ) { }
 
   ngOnInit(): void {
-    this.idCliente = this.rutaActiva.snapshot.params.id
+    this.idCliente = this.rutaActiva.snapshot.params.id    
+    if(!this.idCliente){
+      this.idCliente = this.usuario.getAwknSession().username;
+    }
     this.formPerfil = new FormGroup({
       id: new FormControl(0),
       nombre: new FormControl(''),
