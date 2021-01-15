@@ -269,7 +269,7 @@ export class FormularioEncomiendaMasivoComponent implements OnInit {
       }
     });
     this.dataExcel = newArray;
-    this.totalValorizado = this.dataExcel.map(v => v.Valor).reduce((a, b) => a + b);
+    this.totalValorizado = ((this.dataExcel.length > 0) ? this.dataExcel.map(v => v.Valor).reduce((a, b) => a + b) : 0);
     this.setEstadoInicial();
   }
 
@@ -492,7 +492,7 @@ export class FormularioEncomiendaMasivoComponent implements OnInit {
       }).then(t => {
         const modalFiltro = this.dialog.open(ResumenEncomiendaComponent, {
           data: despachos,
-          width: '1000px',
+          // width: '1000px',
           panelClass: ['filtro-container', 'filtro-content']
         });
         modalFiltro.afterClosed().subscribe(e => {

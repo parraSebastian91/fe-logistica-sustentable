@@ -1,114 +1,122 @@
 <div class="container-fluid contenedor" id="orden">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="titulo">
-                <div class="icon">
-                    <span class="material-icons icono">
-                        assignment
-                    </span>
-                </div>
-                <div class="name">
-                    Resumen Encomienda
-                </div>
-                <span class="spacer"></span>
-                <button mat-raised-button (click)="cerrar()"> 
-                    <span class="material-icons icono">
-                        close
-                    </span>
-                </button>
-            </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="titulo">
+        <div class="icon">
+          <span class="material-icons icono">
+            assignment
+          </span>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-5">
-            <img src="assets/Logo Awkn.png" alt="" class="logo-awkn">
+        <div class="name">
+          Resumen Encomienda
         </div>
-        <div class="col-lg-7" class="">
-            <div class="row">
-                <div class="col-md-12 direccion-retiro">
-                    <h2>Codigo de seguimiento: {{codigoSeguimiento}}</h2>
-                    <mat-list class="list-shop">
-                        <mat-list-item>
-                            <mat-icon mat-list-icon>contacts</mat-icon>
-                            <div mat-line> {{retiro.nombre}}</div>
-                        </mat-list-item>
-                        <mat-list-item>
-                            <mat-icon mat-list-icon>home</mat-icon>
-                            <div mat-line>{{retiro.direccion}}</div>
-                        </mat-list-item>
-                        <mat-list-item>
-                            <mat-icon mat-list-icon>call</mat-icon>
-                            <div mat-line>{{retiro.telefono}}</div>
-                        </mat-list-item>
-                        <mat-list-item>
-                            <mat-icon mat-list-icon>rate_review</mat-icon>
-                            <div mat-line>{{retiro.referencia}}</div>
-                        </mat-list-item>
-                    </mat-list>
-                </div>
-            </div>
+        <span class="spacer"></span>
+        <button mat-raised-button (click)="cerrar()">
+          <span class="material-icons icono">
+            close
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-5" style="text-align: center;">
+      <img src="assets/Logo Awkn.png" alt="" class="logo-awkn">
+    </div>
+    <div class="col-lg-7">
+      <div class="row">
+        <div class="col-md-12 direccion-retiro">
+          <h2>Codigo de seguimiento: {{codigoSeguimiento}}</h2>
+          <mat-list class="list-shop">
+            <mat-list-item>
+              <mat-icon mat-list-icon>contacts</mat-icon>
+              <div mat-line> {{retiro.nombre}}</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>home</mat-icon>
+              <div mat-line>
+                <p style="white-space: normal;">
+                  {{retiro.direccion}}
+                </p>
+              </div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>call</mat-icon>
+              <div mat-line>{{retiro.telefono}}</div>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-icon mat-list-icon>rate_review</mat-icon>
+              <div mat-line>
+                <p style="white-space: normal;">
+                  {{retiro.referencia}}
+                </p>
+              </div>
+            </mat-list-item>
+          </mat-list>
         </div>
+      </div>
     </div>
-    <div class="row encomiendas">
-        <div class="col-lg-12">
-            <table mat-table [dataSource]="dataSource">
+  </div>
+  <div class="row encomiendas">
+    <div class="col-lg-12">
+      <table mat-table [dataSource]="dataSource">
 
-                <ng-container matColumnDef="numero">
-                    <th mat-header-cell *matHeaderCellDef> Numero </th>
-                    <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
-                </ng-container>
+        <ng-container matColumnDef="numero">
+          <th mat-header-cell *matHeaderCellDef> Numero </th>
+          <td mat-cell *matCellDef="let element"> {{element.numero}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="contacto">
-                    <th mat-header-cell *matHeaderCellDef> Contacto </th>
-                    <td mat-cell *matCellDef="let element"> {{element.contacto}} </td>
-                </ng-container>
+        <ng-container matColumnDef="contacto">
+          <th mat-header-cell *matHeaderCellDef> Contacto </th>
+          <td mat-cell *matCellDef="let element"> {{element.contacto}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="direccion">
-                    <th mat-header-cell *matHeaderCellDef> Dirección </th>
-                    <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
-                </ng-container>
+        <ng-container matColumnDef="direccion">
+          <th mat-header-cell *matHeaderCellDef> Dirección </th>
+          <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="telefono">
-                    <th mat-header-cell *matHeaderCellDef style="width: 120px;"> telefono </th>
-                    <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
-                </ng-container>
+        <ng-container matColumnDef="telefono">
+          <th mat-header-cell *matHeaderCellDef style="width: 120px;"> telefono </th>
+          <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="alto">
-                    <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Alto </th>
-                    <td mat-cell *matCellDef="let element"> {{element.alto}} </td>
-                </ng-container>
+        <ng-container matColumnDef="alto">
+          <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Alto </th>
+          <td mat-cell *matCellDef="let element"> {{element.alto}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="ancho">
-                    <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Ancho </th>
-                    <td mat-cell *matCellDef="let element"> {{element.ancho}} </td>
-                </ng-container>
+        <ng-container matColumnDef="ancho">
+          <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Ancho </th>
+          <td mat-cell *matCellDef="let element"> {{element.ancho}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="largo">
-                    <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Largo </th>
-                    <td mat-cell *matCellDef="let element"> {{element.largo}} </td>
-                </ng-container>
+        <ng-container matColumnDef="largo">
+          <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Largo </th>
+          <td mat-cell *matCellDef="let element"> {{element.largo}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="peso">
-                    <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Peso </th>
-                    <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
-                </ng-container>
+        <ng-container matColumnDef="peso">
+          <th mat-header-cell *matHeaderCellDef style="width: 50px;"> Peso </th>
+          <td mat-cell *matCellDef="let element"> {{element.peso}} </td>
+        </ng-container>
 
-                <ng-container matColumnDef="valor">
-                    <th mat-header-cell *matHeaderCellDef style="width: 80px;"> Valor </th>
-                    <td mat-cell *matCellDef="let element">$ {{element.valor}} </td>
-                </ng-container>
+        <ng-container matColumnDef="valor">
+          <th mat-header-cell *matHeaderCellDef style="width: 80px;"> Valor </th>
+          <td mat-cell *matCellDef="let element">$ {{element.valor}} </td>
+        </ng-container>
 
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-        </div>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
     </div>
-    <div class="row">
-        <span class="valor-total">Total: {{valorTotal}}</span>
-    </div>
+  </div>
+  <div class="row">
+    <span class="valor-total">Total: {{valorTotal}}</span>
+  </div>
 </div>
 
 <div mat-dialog-actions style="padding: 10px 0 0 0;">
-    <button mat-raised-button color="primary" (click)="descargar()">Guardar PDF</button>
-    <button mat-raised-button color="secundary" (click)="cerrar()">OK</button>
+  <button mat-raised-button color="primary" (click)="descargar()">Guardar PDF</button>
+  <button mat-raised-button color="secundary" (click)="cerrar()">OK</button>
 </div>

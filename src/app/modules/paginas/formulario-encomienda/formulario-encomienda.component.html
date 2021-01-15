@@ -1,52 +1,49 @@
 <mat-card class="example-card">
-    <mat-card-header class="card-header">
-        <div mat-card-avatar class="example-header-image">
-            <span class="material-icons icono">
-                assignment
-            </span>
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="example-header-image">
+      <span class="material-icons icono">
+        assignment
+      </span>
+    </div>
+    <mat-card-title>Formulario de encomiendas</mat-card-title>
+    <mat-card-subtitle>Ingrese los datos solicitados</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="stepName">
+          <h1>{{stepName[stepper.selectedIndex]}}</h1>
         </div>
-        <mat-card-title>Formulario de encomiendas</mat-card-title>
-        <mat-card-subtitle>Ingrese los datos solicitados</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content class="card-content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="stepName">
-                    <h1>{{stepName[stepper.selectedIndex]}}</h1>
-                </div>
-                <mat-horizontal-stepper #stepper [linear]="true" labelPosition="bottom">
-                    <mat-step [stepControl]="puntoRetiro">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div *ngIf="!isRegistrado">
+        <mat-horizontal-stepper #stepper [linear]="true" labelPosition="bottom">
+          <mat-step [stepControl]="puntoRetiro">
+            <div class="row">
+              <div class="col-md-12">
+                <div *ngIf="!isRegistrado">
 
-                                    <form [formGroup]="puntoRetiro">
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Nombre Punto de retiro</mat-label>
-                                            <input matInput formControlName="nombrePunto"
-                                                placeholder="Nombre del Punto de retiro">
-                                            <mat-icon matSuffix #tooltip="matTooltip"
-                                                matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente."
-                                                [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline
-                                            </mat-icon>
-                                        </mat-form-field>
+                  <form [formGroup]="puntoRetiro">
+                    <mat-form-field appearance="outline">
+                      <mat-label>Nombre Punto de retiro</mat-label>
+                      <input matInput formControlName="nombrePunto" placeholder="Nombre del Punto de retiro">
+                      <mat-icon matSuffix #tooltip="matTooltip"
+                        matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente."
+                        [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline
+                      </mat-icon>
+                    </mat-form-field>
 
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Nombre</mat-label>
-                                            <input matInput formControlName="nombreRetiro"
-                                                placeholder="Nombre de Contacto">
-                                            <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                        </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Nombre</mat-label>
+                      <input matInput formControlName="nombreRetiro" placeholder="Nombre de Contacto">
+                      <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                    </mat-form-field>
 
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Dirección</mat-label>
-                                            <input matInput formControlName="direccionRetiro"
-                                                placeholder="Direccion de retiro">
-                                            <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                        </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Dirección</mat-label>
+                      <input matInput formControlName="direccionRetiro" placeholder="Direccion de retiro">
+                      <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                    </mat-form-field>
 
 
-                                        <!-- <mat-form-field appearance="outline">
+                    <!-- <mat-form-field appearance="outline">
                                             <mat-label>Comuna Retiro</mat-label>
                                             <mat-select formControlName="comunaRetiro">
                                                 <mat-option>--</mat-option>
@@ -56,444 +53,440 @@
                                             </mat-select>
                                         </mat-form-field> -->
 
-                                        <ng-select placeholder="Comuna de retiro" formControlName="comunaRetiro"
-                                            [appearance]="'outline'">
-                                            <ng-option *ngFor="let item of comunas" [value]="item.id">{{item.name}}
-                                            </ng-option>
-                                        </ng-select>
+                    <ng-select placeholder="Comuna de retiro" formControlName="comunaRetiro" [appearance]="'outline'">
+                      <ng-option *ngFor="let item of comunas" [value]="item.id">{{item.name}}
+                      </ng-option>
+                    </ng-select>
 
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Teléfono</mat-label>
-                                            <input matInput formControlName="telefonoRetiro"
-                                                placeholder="Teléfono de contacto">
-                                            <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                        </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Teléfono</mat-label>
+                      <input matInput formControlName="telefonoRetiro" placeholder="Teléfono de contacto">
+                      <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de retiro posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                    </mat-form-field>
 
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Referencia</mat-label>
-                                            <input matInput formControlName="referenciaRetiro" maxlength="256"
-                                                placeholder="Ej: al lado de la casa azul de 2 pisos">
-                                            <mat-hint align="start"><strong>Referencia de retiro</strong> </mat-hint>
-                                            <mat-hint align="end">{{puntoRetiro.get('referenciaRetiro').value.length}} /
-                                                256</mat-hint>
-                                        </mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Referencia</mat-label>
+                      <input matInput formControlName="referenciaRetiro" maxlength="256"
+                        placeholder="Ej: al lado de la casa azul de 2 pisos">
+                      <mat-hint align="start"><strong>Referencia de retiro</strong> </mat-hint>
+                      <mat-hint align="end">{{puntoRetiro.get('referenciaRetiro').value.length}} /
+                        256</mat-hint>
+                    </mat-form-field>
 
-                                        <!-- <div>
+                    <!-- <div>
                                             <button mat-raised-button matStepperNext>Siguiente</button>
                                         </div> -->
-                                    </form>
+                  </form>
 
-                                </div>
-                                <div *ngIf="isRegistrado" class="ptoRegistrado">
+                </div>
+                <div *ngIf="isRegistrado" class="ptoRegistrado">
 
-                                    <mat-card class="card-retiro">
-                                        <mat-card-content>
-                                            <div class="row">
-                                                <div class="col-md-2">
-                                                    <mat-form-field appearance="outline">
-                                                        <mat-label>Punto de retiro</mat-label>
-                                                        <mat-select (selectionChange)="cambioTienda($event)"
-                                                            [formControl]="ptoRetiroControl">
-                                                            <!-- <mat-option>--</mat-option> -->
-                                                            <mat-option *ngFor="let pto of ptoRetiro" [value]="pto.id">
-                                                                {{pto.name}}
-                                                            </mat-option>
-                                                        </mat-select>
-                                                    </mat-form-field>
-                                                </div>
-                                                <div class="col-md-10">
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <button mat-raised-button
-                                                                (click)="agregarPuntoRetiro()">Añadir nuevo punto de
-                                                                retiro</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <mat-card class="card-tienda">
-                                                                <mat-card-header>
-                                                                    <div mat-card-avatar class="example-header-image">
-                                                                        <span class="material-icons icono">
-                                                                            check_circle_outline
-                                                                        </span>
-                                                                    </div>
-                                                                    <mat-card-title>{{ selecShop.NombreTienda }}
-                                                                    </mat-card-title>
-                                                                    <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
-                                                                </mat-card-header>
-                                                                <mat-card-content>
-                                                                    <div class="row">
-                                                                        <div class="col-md-3 cont-img">
-                                                                            <img src="assets/shop.png" class="imgTienda"
-                                                                                alt="shop">
-                                                                        </div>
-                                                                        <div class="col-md-9">
-                                                                            <mat-list class="list-shop">
-                                                                                <mat-list-item>
-                                                                                    <mat-icon mat-list-icon>contacts
-                                                                                    </mat-icon>
-                                                                                    <div mat-line>
-                                                                                        {{selecShop.nameContacto}}</div>
-                                                                                </mat-list-item>
-                                                                                <mat-list-item>
-                                                                                    <mat-icon mat-list-icon>home
-                                                                                    </mat-icon>
-                                                                                    <div mat-line>
-                                                                                        {{selecShop.direccion}},
-                                                                                        {{selecShop.comuna.name}}</div>
-                                                                                </mat-list-item>
-                                                                                <mat-list-item>
-                                                                                    <mat-icon mat-list-icon>call
-                                                                                    </mat-icon>
-                                                                                    <div mat-line>
-                                                                                        {{selecShop.telefono}} </div>
-                                                                                </mat-list-item>
-                                                                                <mat-list-item>
-                                                                                    <mat-icon mat-list-icon>rate_review
-                                                                                    </mat-icon>
-                                                                                    <div mat-line>
-                                                                                        {{selecShop.referencia}}</div>
-                                                                                </mat-list-item>
-                                                                            </mat-list>
-                                                                        </div>
-                                                                    </div>
-                                                                </mat-card-content>
-                                                            </mat-card>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </mat-card-content>
-                                    </mat-card>
-
-                                </div>
-
-                            </div>
+                  <mat-card class="card-retiro">
+                    <mat-card-content>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <mat-form-field appearance="outline">
+                            <mat-label>Punto de retiro</mat-label>
+                            <mat-select (selectionChange)="cambioTienda($event)" [formControl]="ptoRetiroControl">
+                              <!-- <mat-option>--</mat-option> -->
+                              <mat-option *ngFor="let pto of ptoRetiro" [value]="pto.id">
+                                {{pto.name}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
                         </div>
-
-                        <div style="margin-top: 10px;">
-                            <button mat-raised-button matStepperPrevious>Atrás</button>
-                            <button mat-raised-button matStepperNext (click)="asignarRetrio()">Siguiente</button>
+                        <div class="col-md-10">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <button mat-raised-button (click)="agregarPuntoRetiro()">Añadir nuevo punto de
+                                retiro</button>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-card class="card-tienda">
+                                <mat-card-header>
+                                  <div mat-card-avatar class="example-header-image">
+                                    <span class="material-icons icono">
+                                      check_circle_outline
+                                    </span>
+                                  </div>
+                                  <mat-card-title>{{ selecShop.NombreTienda }}
+                                  </mat-card-title>
+                                  <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                                </mat-card-header>
+                                <mat-card-content>
+                                  <div class="row">
+                                    <div class="col-md-3 cont-img">
+                                      <img src="assets/shop.png" class="imgTienda" alt="shop">
+                                    </div>
+                                    <div class="col-md-9">
+                                      <mat-list class="list-shop">
+                                        <mat-list-item>
+                                          <mat-icon mat-list-icon>contacts
+                                          </mat-icon>
+                                          <div mat-line>
+                                            <p style="white-space: normal;">
+                                              {{selecShop.nameContacto}}
+                                            </p>
+                                          </div>
+                                        </mat-list-item>
+                                        <mat-list-item>
+                                          <mat-icon mat-list-icon>home
+                                          </mat-icon>
+                                          <div mat-line>
+                                            <p style="white-space: normal;">
+                                              {{selecShop.direccion}},
+                                              {{selecShop.comuna.name}}
+                                            </p>
+                                          </div>
+                                        </mat-list-item>
+                                        <mat-list-item>
+                                          <mat-icon mat-list-icon>call
+                                          </mat-icon>
+                                          <div mat-line>
+                                            <p style="white-space: normal;">
+                                              {{selecShop.telefono}}
+                                            </p>
+                                          </div>
+                                        </mat-list-item>
+                                        <mat-list-item>
+                                          <mat-icon mat-list-icon>rate_review
+                                          </mat-icon>
+                                          <div mat-line>
+                                            <p style="white-space: normal;">
+                                              {{selecShop.referencia}}
+                                            </p>
+                                          </div>
+                                        </mat-list-item>
+                                      </mat-list>
+                                    </div>
+                                  </div>
+                                </mat-card-content>
+                              </mat-card>
+                            </div>
+                          </div>
                         </div>
-                    </mat-step>
+                      </div>
+                    </mat-card-content>
+                  </mat-card>
 
-                    <mat-step [stepControl]="puntoEntrega">
-                        <form [formGroup]="puntoEntrega">
-                            <!-- <ng-template matStepLabel>Punto de entrega</ng-template> -->
+                </div>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>Nombre</mat-label>
-                                <input matInput formControlName="nombreEntrega" placeholder="Nombre de Contacto">
-                                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                            </mat-form-field>
+              </div>
+            </div>
 
-                            <mat-form-field appearance="outline" *ngIf="errDir">
-                                <mat-label>Dirección</mat-label>
-                                <input matInput formControlName="direccionEntrega" placeholder="Direccion de Entrega">
-                                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                            </mat-form-field>
+            <div style="margin-top: 10px;">
+              <button mat-raised-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button matStepperNext (click)="asignarRetrio()">Siguiente</button>
+            </div>
+          </mat-step>
 
-                            <mat-form-field appearance="outline" *ngIf="!errDir">
-                                <mat-label>Dirección</mat-label>
-                                <!-- <input matInput formControlName="direccionEntrega" placeholder="Direccion de Entrega"> -->
-                                <input ngx-google-places-autocomplete matInput [options]='options'
-                                    #placesRef="ngx-places" (onAddressChange)="cambios($event)"
-                                    placeholder="Ingrese dirección" />
-                                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                            </mat-form-field>
+          <mat-step [stepControl]="puntoEntrega">
+            <form [formGroup]="puntoEntrega">
+              <!-- <ng-template matStepLabel>Punto de entrega</ng-template> -->
 
-                            <mat-form-field appearance="outline" *ngIf="errDir">
-                                <mat-label>Comuna Entrega</mat-label>
-                                <mat-select formControlName="comunaEntrega">
-                                    <mat-option>--</mat-option>
-                                    <mat-option *ngFor="let comuna of comunas" [value]="comuna.id">
-                                        {{comuna.name}}
-                                    </mat-option>
-                                </mat-select>
-                            </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombreEntrega" placeholder="Nombre de Contacto">
+                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+              </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>Teléfono</mat-label>
-                                <input matInput formControlName="telefonoEntrega" placeholder="Teléfono de contacto"
-                                    type="number">
-                                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                            </mat-form-field>
+              <mat-form-field appearance="outline" *ngIf="errDir">
+                <mat-label>Dirección</mat-label>
+                <input matInput formControlName="direccionEntrega" placeholder="Direccion de Entrega">
+                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+              </mat-form-field>
 
-                            <mat-form-field appearance="outline">
-                                <mat-label>Referencia</mat-label>
-                                <input matInput formControlName="referenciaEntrega" maxlength="256"
-                                    placeholder="Ej: al lado de la casa azul de 2 pisos">
-                                <mat-hint align="start"><strong>Referencia de Entrega</strong> </mat-hint>
-                                <mat-hint align="end">{{puntoEntrega.get('referenciaEntrega').value.length}} / 256
-                                </mat-hint>
-                            </mat-form-field>
-                            <div>
-                                <button mat-raised-button matStepperPrevious>Atrás</button>
-                                <button mat-raised-button matStepperNext (click)="setDespacho()">Siguiente</button>
-                            </div>
-                        </form>
-                    </mat-step>
-                    <mat-step [stepControl]="encomienda">
-                        <form [formGroup]="encomienda">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Descripción encomienda</mat-label>
-                                        <input matInput formControlName="descripcionEncomienda" maxlength="256"
-                                            placeholder="Ej: 3 objetos color cian">
-                                        <mat-hint align="start"><strong>Detalle del contenido de la encomienda</strong>
-                                        </mat-hint>
-                                        <mat-hint align="end">{{encomienda.get('descripcionEncomienda').value.length}} /
-                                            256
-                                        </mat-hint>
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Alto</mat-label>
-                                        <input matInput formControlName="alto" placeholder="Alto en Centímetros" min="0"
-                                            type="number">
-                                        <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-lg-3">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Ancho (cm)</mat-label>
-                                        <input matInput formControlName="ancho" placeholder="Ancho en Centímetros"
-                                            min="0" type="number">
-                                        <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-lg-3">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Largo (cm)</mat-label>
-                                        <input matInput formControlName="largo" placeholder="Largo en Centímetros"
-                                            min="0" type="number">
-                                        <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-lg-3">
-                                    <mat-form-field appearance="outline">
-                                        <mat-label>Peso (cm)</mat-label>
-                                        <input matInput formControlName="peso" placeholder="Peso de encomienda" min="0"
-                                            type="number">
-                                        <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
-                                    </mat-form-field>
-                                </div>
-                            </div>
-                            <!-- <mat-form-field appearance="outline">
+              <mat-form-field appearance="outline" *ngIf="!errDir">
+                <mat-label>Dirección</mat-label>
+                <!-- <input matInput formControlName="direccionEntrega" placeholder="Direccion de Entrega"> -->
+                <input ngx-google-places-autocomplete matInput [options]='options' #placesRef="ngx-places"
+                  (onAddressChange)="cambios($event)" placeholder="Ingrese dirección" />
+                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" *ngIf="errDir">
+                <mat-label>Comuna Entrega</mat-label>
+                <mat-select formControlName="comunaEntrega">
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let comuna of comunas" [value]="comuna.id">
+                    {{comuna.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Teléfono</mat-label>
+                <input matInput formControlName="telefonoEntrega" placeholder="Teléfono de contacto" type="number">
+                <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Referencia</mat-label>
+                <input matInput formControlName="referenciaEntrega" maxlength="256"
+                  placeholder="Ej: al lado de la casa azul de 2 pisos">
+                <mat-hint align="start"><strong>Referencia de Entrega</strong> </mat-hint>
+                <mat-hint align="end">{{puntoEntrega.get('referenciaEntrega').value.length}} / 256
+                </mat-hint>
+              </mat-form-field>
+              <div>
+                <button mat-raised-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button matStepperNext (click)="setDespacho()">Siguiente</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="encomienda">
+            <form [formGroup]="encomienda">
+              <div class="row">
+                <div class="col-lg-12">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Descripción encomienda</mat-label>
+                    <input matInput formControlName="descripcionEncomienda" maxlength="256"
+                      placeholder="Ej: 3 objetos color cian">
+                    <mat-hint align="start"><strong>Detalle del contenido de la encomienda</strong>
+                    </mat-hint>
+                    <mat-hint align="end">{{encomienda.get('descripcionEncomienda').value.length}} /
+                      256
+                    </mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Alto</mat-label>
+                    <input matInput formControlName="alto" placeholder="Alto en Centímetros" min="0" type="number">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Ancho (cm)</mat-label>
+                    <input matInput formControlName="ancho" placeholder="Ancho en Centímetros" min="0" type="number">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Largo (cm)</mat-label>
+                    <input matInput formControlName="largo" placeholder="Largo en Centímetros" min="0" type="number">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-3">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Peso (cm)</mat-label>
+                    <input matInput formControlName="peso" placeholder="Peso de encomienda" min="0" type="number">
+                    <!-- <mat-icon matSuffix #tooltip="matTooltip" matTooltip="Esto te ayudará a identificar mejor tus direcciones de Entrega posteriormente." [matTooltipPosition]="'right'" matTooltipHideDelay="5000">help_outline</mat-icon> -->
+                  </mat-form-field>
+                </div>
+              </div>
+              <!-- <mat-form-field appearance="outline">
                                 <mat-label>Dimenciones</mat-label>
                                 <input matInput formControlName="dimencion" placeholder="Ej: 2x3x4 en Centímetros">                                
                             </mat-form-field> -->
-                            <div>
-                                <button mat-raised-button matStepperPrevious>Atrás</button>
-                                <button mat-raised-button matStepperNext
-                                    (click)="calcularEncomienda()">Siguiente</button>
-                                <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
-                            </div>
-                        </form>
-                    </mat-step>
-                    <mat-step>
-                        <!-- <ng-template matStepLabel>Confirmar Encomienda</ng-template> -->
+              <div>
+                <button mat-raised-button matStepperPrevious>Atrás</button>
+                <button mat-raised-button matStepperNext (click)="calcularEncomienda()">Siguiente</button>
+                <!-- <button mat-button (click)="stepper.reset()">Reset</button> -->
+              </div>
+            </form>
+          </mat-step>
+          <mat-step>
+            <!-- <ng-template matStepLabel>Confirmar Encomienda</ng-template> -->
+            <div class="row">
+              <div class="col-lg-12">
+                <mat-card class="card-retiro">
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <mat-card-content>
                         <div class="row">
-                            <div class="col-lg-12">
-                                <mat-card class="card-retiro">
-                                    <div class="row">
-                                        <div class="col-lg-5">
-                                            <mat-card-content>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <mat-card class="card-tienda">
-                                                                    <mat-card-header>
-                                                                        <div mat-card-avatar
-                                                                            class="example-header-image">
-                                                                            <img src="assets/iconfinder_20_In-Store_Promotion_1688857.svg"
-                                                                                alt="" class="header-image">
-                                                                        </div>
-                                                                        <mat-card-title>Retiro en:
-                                                                            {{ selecShop.NombreTienda }}
-                                                                        </mat-card-title>
-                                                                        <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
-                                                                    </mat-card-header>
-                                                                    <mat-card-content>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <mat-list class="list-shop">
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>contacts
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{selecShop.nameContacto}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>home
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{selecShop.direccion}},
-                                                                                            {{selecShop.comuna.name}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>call
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{selecShop.telefono}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>
-                                                                                            rate_review</mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{selecShop.referencia}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                </mat-list>
-                                                                            </div>
-                                                                        </div>
-                                                                    </mat-card-content>
-                                                                </mat-card>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-card-content>
-                                            <!-- </mat-card> -->
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="row">
-                                                <div class="col-lg-4">
-                                                    <img src="assets/arrow-left.svg" alt="" class="right">
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <img src="assets/bike.svg" alt="" class="bike">
-                                                </div>
-                                                <div class="col-lg-4">
-                                                    <img src="assets/arrow-left.svg" alt="" class="left">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-5">
-                                            <!-- <mat-card class="card-retiro"> -->
-                                            <mat-card-content>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <mat-card class="card-tienda">
-                                                                    <mat-card-header>
-                                                                        <div mat-card-avatar
-                                                                            class="example-header-image">
-                                                                            <div mat-card-avatar
-                                                                                class="example-header-image">
-                                                                                <img src="assets/iconfinder_Maps_Maps_Navigation_Gps_Pin_Location-02_3915752.svg"
-                                                                                    alt="" class="header-image">
-                                                                            </div>
-                                                                        </div>
-                                                                        <mat-card-title>Dirección despacho
-                                                                        </mat-card-title>
-                                                                        <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
-                                                                    </mat-card-header>
-                                                                    <mat-card-content>
-                                                                        <div class="row">
-                                                                            <div class="col-md-12">
-                                                                                <mat-list class="list-shop">
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>contacts
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{ptoDespacho.nameContacto}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>home
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{ptoDespacho.direccion}},
-                                                                                            {{ptoDespacho.comuna}}</div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>call
-                                                                                        </mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{ptoDespacho.telefono}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                    <mat-list-item>
-                                                                                        <mat-icon mat-list-icon>
-                                                                                            rate_review</mat-icon>
-                                                                                        <div mat-line>
-                                                                                            {{ptoDespacho.referencia}}
-                                                                                        </div>
-                                                                                    </mat-list-item>
-                                                                                </mat-list>
-                                                                            </div>
-                                                                        </div>
-                                                                    </mat-card-content>
-                                                                </mat-card>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </mat-card-content>
-                                        </div>
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <mat-card class="card-tienda">
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image">
+                                      <img src="assets/iconfinder_20_In-Store_Promotion_1688857.svg" alt=""
+                                        class="header-image">
                                     </div>
+                                    <mat-card-title>Retiro en:
+                                      {{ selecShop.NombreTienda }}
+                                    </mat-card-title>
+                                    <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                                  </mat-card-header>
+                                  <mat-card-content>
                                     <div class="row">
-                                        <div class="col-lg-5">
-                                            <mat-card class="example-card">
-                                                <mat-card-header>
-                                                    <div mat-card-avatar>
-                                                        <img src="assets/iconfinder_package-x-generic_118888.svg" alt=""
-                                                            class="header-image">
-                                                    </div>
-                                                    <!-- <mat-card-title> $ {{costo | formatNumber}} </mat-card-title> -->
-                                                    <mat-card-title>Detalle Paquete</mat-card-title>
-                                                </mat-card-header>
-                                                <mat-card-content>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <mat-list class="list-shop">
-                                                                <mat-list-item>
-                                                                    <fa-icon mat-list-icon [icon]="nota"></fa-icon>
-                                                                    <div mat-line>{{dataEncomienda.descripcion}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <fa-icon mat-list-icon [icon]="regla"></fa-icon>
-                                                                    <div mat-line>Alto:
-                                                                        {{dataEncomienda.dimenciones.alto}}, Ancho:
-                                                                        {{dataEncomienda.dimenciones.ancho}}, Largo:
-                                                                        {{dataEncomienda.dimenciones.largo}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <fa-icon mat-list-icon [icon]="pesa"></fa-icon>
-                                                                    <div mat-line> {{dataEncomienda.peso}} Kg </div>
-                                                                </mat-list-item>
-                                                            </mat-list>
-                                                        </div>
-                                                    </div>
-                                                </mat-card-content>
-                                            </mat-card>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="row">
-                                                <div class="col-lg-4"></div>
-                                                <div class="col-lg-6">
-                                                    <div class="contenedor-valor">
-                                                        <div>
-                                                            <img src="assets/iconfinder_money_1055022.svg" alt=""
-                                                                class="header-image">
-                                                        </div>
-                                                        <span>$ {{costo | formatNumber}} </span>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2"></div>
+                                      <div class="col-md-12">
+                                        <mat-list class="list-shop">
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>contacts
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{selecShop.nameContacto}}
+                                            </div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>home
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{selecShop.direccion}},
+                                              {{selecShop.comuna.name}}
+                                            </div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>call
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{selecShop.telefono}}
+                                            </div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>
+                                              rate_review</mat-icon>
+                                            <div mat-line>
+                                              {{selecShop.referencia}}
+                                            </div>
+                                          </mat-list-item>
+                                        </mat-list>
+                                      </div>
+                                    </div>
+                                  </mat-card-content>
+                                </mat-card>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-card-content>
+                      <!-- </mat-card> -->
+                    </div>
+                    <div class="col-lg-2">
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <img src="assets/arrow-left.svg" alt="" class="right">
+                        </div>
+                        <div class="col-lg-4">
+                          <img src="assets/bike.svg" alt="" class="bike">
+                        </div>
+                        <div class="col-lg-4">
+                          <img src="assets/arrow-left.svg" alt="" class="left">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-5">
+                      <!-- <mat-card class="card-retiro"> -->
+                      <mat-card-content>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="row">
+                              <div class="col-md-12">
+                                <mat-card class="card-tienda">
+                                  <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image">
+                                      <div mat-card-avatar class="example-header-image">
+                                        <img
+                                          src="assets/iconfinder_Maps_Maps_Navigation_Gps_Pin_Location-02_3915752.svg"
+                                          alt="" class="header-image">
+                                      </div>
+                                    </div>
+                                    <mat-card-title>Dirección despacho
+                                    </mat-card-title>
+                                    <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                                  </mat-card-header>
+                                  <mat-card-content>
+                                    <div class="row">
+                                      <div class="col-md-12">
+                                        <mat-list class="list-shop">
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>contacts
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{ptoDespacho.nameContacto}}
+                                            </div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>home
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{ptoDespacho.direccion}},
+                                              {{ptoDespacho.comuna}}</div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>call
+                                            </mat-icon>
+                                            <div mat-line>
+                                              {{ptoDespacho.telefono}}
+                                            </div>
+                                          </mat-list-item>
+                                          <mat-list-item>
+                                            <mat-icon mat-list-icon>
+                                              rate_review</mat-icon>
+                                            <div mat-line>
+                                              {{ptoDespacho.referencia}}
+                                            </div>
+                                          </mat-list-item>
+                                        </mat-list>
+                                      </div>
+                                    </div>
+                                  </mat-card-content>
+                                </mat-card>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </mat-card-content>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-5">
+                      <mat-card class="example-card">
+                        <mat-card-header>
+                          <div mat-card-avatar>
+                            <img src="assets/iconfinder_package-x-generic_118888.svg" alt="" class="header-image">
+                          </div>
+                          <!-- <mat-card-title> $ {{costo | formatNumber}} </mat-card-title> -->
+                          <mat-card-title>Detalle Paquete</mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-list class="list-shop">
+                                <mat-list-item>
+                                  <fa-icon mat-list-icon [icon]="nota"></fa-icon>
+                                  <div mat-line>{{dataEncomienda.descripcion}}</div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <fa-icon mat-list-icon [icon]="regla"></fa-icon>
+                                  <div mat-line>Alto:
+                                    {{dataEncomienda.dimenciones.alto}}, Ancho:
+                                    {{dataEncomienda.dimenciones.ancho}}, Largo:
+                                    {{dataEncomienda.dimenciones.largo}}</div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <fa-icon mat-list-icon [icon]="pesa"></fa-icon>
+                                  <div mat-line> {{dataEncomienda.peso}} Kg </div>
+                                </mat-list-item>
+                              </mat-list>
+                            </div>
+                          </div>
+                        </mat-card-content>
+                      </mat-card>
+                    </div>
+                    <div class="col-lg-7">
+                      <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-6">
+                          <div class="contenedor-valor">
+                            <div>
+                              <img src="assets/iconfinder_money_1055022.svg" alt="" class="header-image">
+                            </div>
+                            <span>$ {{costo | formatNumber}} </span>
+                          </div>
+                        </div>
+                        <div class="col-lg-2"></div>
 
-                                                <!-- <div class="col-lg-7">
+                        <!-- <div class="col-lg-7">
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="distancia">
@@ -509,23 +502,23 @@
                                                         </div>
                                                     </div>
                                                 </div> -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </mat-card>
-                            </div>
-                        </div>
-                        <div class="btns">
-                            <button mat-raised-button matStepperPrevious>Atrás</button>
-                            <button mat-raised-button (click)="GestionarEnvio()">Confirmar Encomienda</button>
-                        </div>
-                    </mat-step>
-                </mat-horizontal-stepper>
+                      </div>
+                    </div>
+                  </div>
+                </mat-card>
+              </div>
             </div>
-        </div>
+            <div class="btns">
+              <button mat-raised-button matStepperPrevious>Atrás</button>
+              <button mat-raised-button (click)="GestionarEnvio()">Confirmar Encomienda</button>
+            </div>
+          </mat-step>
+        </mat-horizontal-stepper>
+      </div>
+    </div>
 
-    </mat-card-content>
-    <!-- <mat-card-actions>
+  </mat-card-content>
+  <!-- <mat-card-actions>
         <button mat-raised-button>LIKE</button>
         <button mat-button>SHARE</button>
     </mat-card-actions> -->
