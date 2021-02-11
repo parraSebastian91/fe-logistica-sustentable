@@ -71,7 +71,7 @@ const path = {
     },
     getUsuarioByCorreo: {
         tipo: 'get',
-        rutaRemota: '/usuario/mail/{correo}',
+        rutaRemota: '/usuario/mail/:correo:',
         rutaLocal: '',
     },
     getListUsuarios: {
@@ -103,7 +103,18 @@ const path = {
         tipo: 'put',
         rutaRemota: '/encomienda/:id_encomienda:',
         rutaLocal: '',
+    },
+    updUsuario: {
+        tipo: 'put',
+        rutaRemota: '/usuario/:usuario:',
+        rutaLocal: '',
+    },
+    deleteRol: {
+        tipo: 'put',
+        rutaRemota: '/usuario/rol/:usuario:',
+        rutaLocal: ''
     }
+
 
 };
 

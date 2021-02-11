@@ -158,6 +158,7 @@ export class PagosComponent implements OnInit {
               estado: m.seguimiento,
               cod_seguimiento: m.cod_seguimiento,
               pagado: ((m.pagado) ? 'Sí' : 'No'),
+              valor_total: m.valor_total,
               fecha_creacion: new Date(m.fecha_inicio).toLocaleDateString(),
               // asignnacion_de_retiro: ((m.usuario_retiro === null) ? 'NO ASIGNADO' : `${m.usuario_retiro.nombre} ${m.usuario_retiro.apellido_pa}`),
               // asignnacion_de_despacho: ((m.usuario_despacho === null) ? 'NO ASIGNADO' : `${m.usuario_despacho.nombre} ${m.usuario_despacho.apellido_pa}`),
@@ -176,12 +177,11 @@ export class PagosComponent implements OnInit {
               // id_enc: m.id_enc,
               asignacion_retiro: m.usuario_retiro,
               asignacion_despacho: m.usuario_despacho,
-              pagado_despacho: m.pagado_despacho,
-              despacho_pagado: ((m.despacho_pagado) ? 'Sí' : 'No'),
               pagado_retiro: m.pagado_retiro,
               retiro_pagado: ((m.retiro_pagado) ? 'Sí' : 'No'),
+              pagado_despacho: m.pagado_despacho,
+              despacho_pagado: ((m.despacho_pagado) ? 'Sí' : 'No'),
               envio_especial: m.envio_especial,
-              valor_total: m.valor_total
             };
 
             if (m.pagado_despacho === -1 || m.pagado_despacho === null) {

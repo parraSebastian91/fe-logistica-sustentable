@@ -1,57 +1,61 @@
 <h1 mat-dialog-title> Orden N° {{data.orden.cod_seguimiento}}</h1>
 
 <div class="conteainer-fluid">
-    <div class="row">
-        <div class="col-lg-12">
-            <mat-card class="card-retiro">
-                <div class="row">
-                    <div class="col-lg-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <mat-card class="card-retiro">
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card-content>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-card class="card-tienda">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image">
+                            <img src="assets/iconfinder_20_In-Store_Promotion_1688857.svg" alt="" class="header-image">
+                          </div>
+                          <mat-card-title>Retiro en: {{ data.orden.direccion_remitente.NombreTienda }}</mat-card-title>
+                          <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                        </mat-card-header>
                         <mat-card-content>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <mat-card class="card-tienda">
-                                                <mat-card-header>
-                                                    <div mat-card-avatar class="example-header-image">
-                                                        <img src="assets/iconfinder_20_In-Store_Promotion_1688857.svg" alt="" class="header-image">
-                                                    </div>
-                                                    <mat-card-title>Retiro en: {{ data.orden.direccion_remitente.NombreTienda }}</mat-card-title>
-                                                    <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
-                                                </mat-card-header>
-                                                <mat-card-content>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <mat-list class="list-shop">
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>contacts</mat-icon>
-                                                                    <div mat-line>{{data.orden.direccion_remitente.nombre_contacto}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>home</mat-icon>
-                                                                    <div mat-line>{{data.orden.direccion_remitente.direccion}}, {{comunmaRem.name}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>call</mat-icon>
-                                                                    <div mat-line> {{data.orden.direccion_remitente.telefono}} </div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>rate_review</mat-icon>
-                                                                    <div mat-line>{{data.orden.direccion_remitente.referencia}}</div>
-                                                                </mat-list-item>
-                                                            </mat-list>
-                                                        </div>
-                                                    </div>
-                                                </mat-card-content>
-                                            </mat-card>
-                                        </div>
-                                    </div>
-                                </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-list class="list-shop">
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>contacts</mat-icon>
+                                  <div mat-line>{{data.orden.direccion_remitente.nombre_contacto}}</div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>home</mat-icon>
+                                  <div mat-line>
+                                    <p style="white-space: normal;">
+                                      {{data.orden.direccion_remitente.direccion}}, {{comunmaRem.name}}
+                                    </p>
+                                  </div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>call</mat-icon>
+                                  <div mat-line> {{data.orden.direccion_remitente.telefono}} </div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>rate_review</mat-icon>
+                                  <div mat-line>{{data.orden.direccion_remitente.referencia}}</div>
+                                </mat-list-item>
+                              </mat-list>
                             </div>
+                          </div>
                         </mat-card-content>
-                        <!-- </mat-card> -->
+                      </mat-card>
                     </div>
-                    <div class="col-lg-2">
+                  </div>
+                </div>
+              </div>
+            </mat-card-content>
+            <!-- </mat-card> -->
+          </div>
+          <!-- <div class="col-lg-2">
                         <div class="row">
                             <div class="col-lg-4">
                                 <img src="assets/arrow-left.svg" alt="" class="right">
@@ -63,102 +67,110 @@
                                 <img src="assets/arrow-left.svg" alt="" class="left">
                             </div>
                         </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <!-- <mat-card class="card-retiro"> -->
+                    </div> -->
+          <div class="col-lg-6">
+            <!-- <mat-card class="card-retiro"> -->
+            <mat-card-content>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mat-card class="card-tienda">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image">
+                            <div mat-card-avatar class="example-header-image">
+                              <img src="assets/iconfinder_Maps_Maps_Navigation_Gps_Pin_Location-02_3915752.svg" alt=""
+                                class="header-image">
+                            </div>
+                          </div>
+                          <mat-card-title>Dirección despacho</mat-card-title>
+                          <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
+                        </mat-card-header>
                         <mat-card-content>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <mat-card class="card-tienda">
-                                                <mat-card-header>
-                                                    <div mat-card-avatar class="example-header-image">
-                                                        <div mat-card-avatar class="example-header-image">
-                                                            <img src="assets/iconfinder_Maps_Maps_Navigation_Gps_Pin_Location-02_3915752.svg" alt="" class="header-image">
-                                                        </div>
-                                                    </div>
-                                                    <mat-card-title>Dirección despacho</mat-card-title>
-                                                    <!-- <mat-card-subtitle>Subtitulo Tienda</mat-card-subtitle> -->
-                                                </mat-card-header>
-                                                <mat-card-content>
-                                                    <div class="row">
-                                                        <div class="col-md-12">
-                                                            <mat-list class="list-shop">
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>contacts</mat-icon>
-                                                                    <div mat-line>{{data.orden.nombre_destinatario}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>home</mat-icon>
-                                                                    <div mat-line>{{data.orden.direccion_destinatario}}, {{comunaDest.name}}</div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>call</mat-icon>
-                                                                    <div mat-line> {{data.orden.telefono_destinatario}} </div>
-                                                                </mat-list-item>
-                                                                <mat-list-item>
-                                                                    <mat-icon mat-list-icon>rate_review</mat-icon>
-                                                                    <div mat-line>{{data.orden.referencia}}</div>
-                                                                </mat-list-item>
-                                                            </mat-list>
-                                                        </div>
-                                                    </div>
-                                                </mat-card-content>
-                                            </mat-card>
-                                        </div>
-                                    </div>
-                                </div>
+                          <div class="row">
+                            <div class="col-md-12">
+                              <mat-list class="list-shop">
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>contacts</mat-icon>
+                                  <div mat-line>{{data.orden.nombre_destinatario}}</div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>home</mat-icon>
+                                  <div mat-line>{{data.orden.direccion_destinatario}}, {{comunaDest.name}}</div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>call</mat-icon>
+                                  <div mat-line> {{data.orden.telefono_destinatario}} </div>
+                                </mat-list-item>
+                                <mat-list-item>
+                                  <mat-icon mat-list-icon>rate_review</mat-icon>
+                                  <div mat-line>{{data.orden.referencia}}</div>
+                                </mat-list-item>
+                              </mat-list>
                             </div>
+                          </div>
                         </mat-card-content>
+                      </mat-card>
                     </div>
+                  </div>
                 </div>
+              </div>
+            </mat-card-content>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar>
+                  <img src="assets/iconfinder_package-x-generic_118888.svg" alt="" class="header-image">
+                </div>
+                <!-- <mat-card-title> $ {{costo | formatNumber}} </mat-card-title> -->
+                <mat-card-title>Detalle Paquete</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
                 <div class="row">
-                    <div class="col-lg-5">
-                        <mat-card class="example-card">
-                            <mat-card-header>
-                                <div mat-card-avatar>
-                                    <img src="assets/iconfinder_package-x-generic_118888.svg" alt="" class="header-image">
-                                </div>
-                                <!-- <mat-card-title> $ {{costo | formatNumber}} </mat-card-title> -->
-                                <mat-card-title>Detalle Paquete</mat-card-title>
-                            </mat-card-header>
-                            <mat-card-content>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <mat-list class="list-shop">
-                                            <mat-list-item>
-                                                <fa-icon mat-list-icon [icon]="nota"></fa-icon>
-                                                <div mat-line>{{data.orden.descripcion}}</div>
-                                            </mat-list-item>
-                                            <mat-list-item>
-                                                <fa-icon mat-list-icon [icon]="regla"></fa-icon>
-                                                <div mat-line>Alto: {{data.orden.alto}}, Ancho: {{data.orden.ancho}}, Largo: {{data.orden.largo}}</div>
-                                            </mat-list-item>
-                                            <mat-list-item>
-                                                <fa-icon mat-list-icon [icon]="pesa"></fa-icon>
-                                                <div mat-line> {{data.orden.peso}} Kg </div>
-                                            </mat-list-item>
-                                        </mat-list>
-                                    </div>
-                                </div>
-                            </mat-card-content>
-                        </mat-card>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="row">
-                            <div class="col-lg-4"></div>
-                            <div class="col-lg-6">
-                                <div class="contenedor-valor">
-                                    <div>
-                                        <img src="assets/iconfinder_money_1055022.svg" alt="" class="header-image">
-                                    </div>
-                                    <span>$ {{data.orden.valor_total | formatNumber}} </span>
-                                </div>
-                            </div>
-                            <div class="col-lg-2"></div>
+                  <div class="col-md-12">
+                    <mat-list class="list-shop">
+                      <mat-list-item>
+                        <fa-icon mat-list-icon [icon]="nota"></fa-icon>
+                        <div mat-line>{{data.orden.descripcion}}</div>
+                      </mat-list-item>
+                      <mat-list-item>
+                        <fa-icon mat-list-icon [icon]="regla"></fa-icon>
+                        <div mat-line>
+                          <p style="white-space: normal;">
+                            Alto: {{data.orden.alto}}, Ancho: {{data.orden.ancho}}, Largo:
+                            {{data.orden.largo}}
+                          </p>
+                        </div>
+                      </mat-list-item>
+                      <mat-list-item>
+                        <fa-icon mat-list-icon [icon]="pesa"></fa-icon>
+                        <div mat-line> {{data.orden.peso}} Kg </div>
+                      </mat-list-item>
+                    </mat-list>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6">
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6" style="display: flex;
+                            align-items: center;
+                            justify-content: center; margin-top: 20px;">
+                <div class="contenedor-valor">
+                  <div>
+                    <img src="assets/iconfinder_money_1055022.svg" alt="" class="header-image">
+                  </div>
+                  <span>$ {{data.orden.valor_total | formatNumber}} </span>
+                </div>
+              </div>
+              <div class="col-lg-3"></div>
 
-                            <!-- <div class="col-lg-7">
+              <!-- <div class="col-lg-7">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="distancia">
@@ -174,13 +186,13 @@
                                     </div>
                                 </div>
                             </div> -->
-                        </div>
-                    </div>
-                </div>
-            </mat-card>
+            </div>
+          </div>
         </div>
+      </mat-card>
     </div>
-    <div class="btns">
-        <button mat-raised-button (click)="cerar()">Cerrar</button>
-    </div>
+  </div>
+  <div class="btns">
+    <button mat-raised-button (click)="cerar()">Cerrar</button>
+  </div>
 </div>

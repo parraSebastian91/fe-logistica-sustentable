@@ -17,7 +17,7 @@ export class ResumenEncomiendaComponent implements OnInit {
     referencia: ''
   };
   headers: string[];
-  displayedColumns: string[] = ['numero', 'contacto', 'direccion', 'telefono', 'alto', 'ancho', 'largo', 'peso', 'valor'];
+  displayedColumns: string[] = ['numero', 'contacto', 'direccion', 'telefono', 'valor'];
   dataSource: any;
   valorTotal: any;
 

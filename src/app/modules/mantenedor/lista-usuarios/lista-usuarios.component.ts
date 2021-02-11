@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ClienteService } from 'src/app/services/cliente/cliente.service';
 
 @Component({
@@ -21,11 +22,12 @@ export class ListaUsuariosComponent implements OnInit {
   anchoColumna = {
     ingreso: 120,
     egreso: 120,
-    rol: 100
+    rol: 120
   };
 
   constructor(
     private cliente: ClienteService,
+    private router: Router,
   ) { }
 
 
@@ -46,8 +48,8 @@ export class ListaUsuariosComponent implements OnInit {
             nombre: `${m.nombre} ${m.apellido_pa} ${m.apellido_ma}`,
             usuario: m.username,
             ingreso: new Date(m.fecha_inicio).toLocaleDateString(),
-            egreso: ((m.fecha_fin === null) ? 'No Aplica' : new Date(m.fecha_fin).toLocaleDateString()),
-            rol: this.getRol(m.roles)
+            // egreso: ((m.fecha_fin === null) ? 'No Aplica' : new Date(m.fecha_fin).toLocaleDateString()),
+            rol: m.roles.map(m => m.nombre).join(', ')
           }
           return row;
         })
@@ -68,7 +70,8 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   editarUsuario(evt) {
-
+    console.log(evt)
+    this.router.navigate(['encomienda','vista','mantenedor','mi-perfil',evt.usuario])
   }
 
   exportarUsuarios() {

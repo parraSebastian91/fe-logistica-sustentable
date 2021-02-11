@@ -1,1 +1,83 @@
-<p>perfil works!</p>
+<mat-card class="example-card">
+  <mat-card-header class="card-header">
+    <div mat-card-avatar class="example-header-image">
+      <span class="material-icons icono">
+        assignment
+      </span>
+    </div>
+    <mat-card-title>Perfil de Usuario</mat-card-title>
+    <mat-card-subtitle>Datos generales de usuario</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <div class="container contenedor">
+      <form [formGroup]="formPerfil" style="width: 100%;" (ngSubmit)="guardar()" #perfilForm="ngForm">
+        <div class="row">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Datos Personales</h2>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Nombres</mat-label>
+                  <input matInput placeholder="Nombres" formControlName="nombre">
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Correo</mat-label>
+                  <input matInput placeholder="Correo" formControlName="correo">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Apellido Paterno</mat-label>
+                  <input matInput placeholder="Apellido Paterno" formControlName="apellidoPaterno">
+                </mat-form-field>
+              </div>
+              <div class="col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Apellido Materno</mat-label>
+                  <input matInput placeholder="Apellido Materno" formControlName="apellidoMaterno">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="col-12-lg">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>Roles asociados</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <section class="example-section">
+                <mat-checkbox class="" [checked]="roles.admin" [(ngModel)]="roles.admin">Administrador</mat-checkbox>
+                <mat-checkbox class="" [checked]="roles.repartidor" [(ngModel)]="roles.repartidor">Repartidor
+                </mat-checkbox>
+                <mat-checkbox class="" [checked]="roles.comercio" [(ngModel)]="roles.comercio">Comercio</mat-checkbox>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="container contenedor">
+      <div class="row">
+        <div class="col-lg-12">
+          <button mat-raised-button color="primary" (click)="perfilForm.onSubmit(undefined)">Guardar</button>
+        </div>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -119,7 +119,7 @@ export class LayoutComponent implements OnInit {
   loadUser() {
     this.usuario = {
       nombre: this.usuarioService.getDataProfile().name,
-      correo: this.usuarioService.getDataProfile().email,
+      correo: ((typeof this.usuarioService.getDataProfile().email === 'string') ? this.usuarioService.getDataProfile().email : this.usuarioService.getAwknSession().username),
       img: this.usuarioService.getDataProfile().picture
     };
     this.getMenu();

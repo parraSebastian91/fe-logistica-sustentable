@@ -92,7 +92,7 @@ export class FormularioEncomiendaComponent implements OnInit {
       direccionRetiro: new FormControl('', [Validators.required]),
       comunaRetiro: new FormControl('', [Validators.required]),
       telefonoRetiro: new FormControl('', [Validators.required]),
-      referenciaRetiro: new FormControl('', [Validators.required]),
+      referenciaRetiro: new FormControl(''),
     });
 
     this.puntoEntrega = new FormGroup({
@@ -100,7 +100,7 @@ export class FormularioEncomiendaComponent implements OnInit {
       direccionEntrega: new FormControl('', [Validators.required]),
       comunaEntrega: new FormControl('', [Validators.required]),
       telefonoEntrega: new FormControl('', [Validators.required]),
-      referenciaEntrega: new FormControl('', [Validators.required]),
+      referenciaEntrega: new FormControl(''),
     });
 
     this.encomienda = new FormGroup({
@@ -163,11 +163,12 @@ export class FormularioEncomiendaComponent implements OnInit {
   }
 
   asignarRetrio() {
+
     if (this.selecShop.NombreTienda === '') {
       this.selecShop.NombreTienda = this.puntoRetiro.get('nombrePunto').value;
       this.selecShop.nameContacto = this.puntoRetiro.get('nombreRetiro').value;
       this.selecShop.direccion = this.puntoRetiro.get('direccionRetiro').value;
-      this.selecShop.comuna = this.comunas.find((valor: any) => valor.id === this.puntoRetiro.get('comunaRetiro').value);
+      this.selecShop.comuna = ((this.puntoRetiro.get('comunaRetiro').value === '') ? { id: '', name: '' } : this.comunas.find((valor: any) => valor.id === this.puntoRetiro.get('comunaRetiro').value));
       this.selecShop.telefono = this.puntoRetiro.get('telefonoRetiro').value;
       this.selecShop.referencia = this.puntoRetiro.get('referenciaRetiro').value;
     } else {
@@ -178,6 +179,7 @@ export class FormularioEncomiendaComponent implements OnInit {
       this.puntoRetiro.get('telefonoRetiro').setValue(this.selecShop.telefono);
       this.puntoRetiro.get('referenciaRetiro').setValue(this.selecShop.referencia);
     }
+
   }
 
   setShop(select) {
@@ -289,6 +291,9 @@ export class FormularioEncomiendaComponent implements OnInit {
             heightAuto: false
           });
         }
+      })
+      .catch(err => {
+        this.errorRequest(err);
       });
     // const origen = `${this.selecShop.direccion}, ${this.selecShop.comuna.name}`;
     // const despacho = this.GoogleAddress.formatted_address;
@@ -343,11 +348,25 @@ export class FormularioEncomiendaComponent implements OnInit {
           id_com: this.selecShop.comuna.id,
         }
       };
-      this.cliente.callServices(cuerpo).then(resp => {
-        this.selecShop.idDireccion = resp.id_dir;
-        this.crearEncomienda();
-      });
+      this.cliente.callServices(cuerpo)
+        .then(resp => {
+          this.selecShop.idDireccion = resp.id_dir;
+          this.crearEncomienda();
+        })
+        .catch(err => {
+          this.errorRequest(err);
+        });
     }
+  }
+
+  errorRequest(err) {
+    Swal.fire({
+      title: 'Ups!',
+      html: 'Existen problemas con los servicios',
+      icon: 'error',
+      confirmButtonText: 'OK!',
+      heightAuto: false
+    });
   }
 
   GestionarEnvio() {
@@ -415,7 +434,7 @@ export class FormularioEncomiendaComponent implements OnInit {
         });
       })
       .catch(err => {
-        console.log(err);
+        this.errorRequest(err);
       });
   }
 

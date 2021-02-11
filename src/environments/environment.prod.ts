@@ -1,5 +1,6 @@
 export const environment = {
-  production: true,
+  production: false,
+  endPoint: 'https://awkn.herokuapp.com/api/v1',
   firebaseConfig: {
     apiKey: 'AIzaSyDyWnKt7eUkYmGxD4oFGPq-l0aNN2ULCbk',
     authDomain: 'logistica-sustentable.firebaseapp.com',
