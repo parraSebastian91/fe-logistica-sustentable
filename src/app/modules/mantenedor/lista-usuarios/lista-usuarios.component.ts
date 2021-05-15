@@ -16,7 +16,7 @@ export class ListaUsuariosComponent implements OnInit {
     rol: 'center',
     egreso: 'center'
   };
-  accionFila = ['edit', 'see'];
+  accionFila = ['see'];
   seleccionFila = false;
   listUsuarios = [];
   anchoColumna = {
@@ -41,7 +41,6 @@ export class ListaUsuariosComponent implements OnInit {
     }
     this.cliente.callServices(cuerpo)
       .then(t => {
-        console.log(t)
         this.listaUsuarios = t.map(m => {
           const row = {
             id: m.id_usu,
@@ -70,7 +69,6 @@ export class ListaUsuariosComponent implements OnInit {
   }
 
   editarUsuario(evt) {
-    console.log(evt)
     this.router.navigate(['encomienda','vista','mantenedor','mi-perfil',evt.usuario])
   }
 

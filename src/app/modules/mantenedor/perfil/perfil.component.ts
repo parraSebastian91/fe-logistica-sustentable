@@ -39,6 +39,9 @@ export class PerfilComponent implements OnInit {
       correo: new FormControl(''),
       apellidoPaterno: new FormControl(''),
       apellidoMaterno: new FormControl(''),
+      adminChk: new FormControl(false),
+      comercioChk: new FormControl(false),
+      repartidorChk: new FormControl(false),
     });
     this.obtenerCliente();
   }
@@ -56,21 +59,9 @@ export class PerfilComponent implements OnInit {
         this.formPerfil.get('apellidoMaterno').setValue(t.apellido_ma);
         this.formPerfil.get('correo').setValue(t.username);
         this.formPerfil.get('correo').disable();
-        if (t.roles.map(m => m.nombre).includes('ADMIN')) {
-          this.roles.admin = true;
-        } else {
-          this.roles.admin = false;
-        }
-        if (t.roles.map(m => m.nombre).includes('COMERCIO')) {
-          this.roles.comercio = true;
-        } else {
-          this.roles.comercio = false;
-        }
-        if (t.roles.map(m => m.nombre).includes('REPARTIDOR')) {
-          this.roles.repartidor = true;
-        } else {
-          this.roles.repartidor = false;
-        }
+        this.formPerfil.get('adminChk').setValue(t.roles.map(m => m.nombre).includes('ADMIN'));
+        this.formPerfil.get('comercioChk').setValue(t.roles.map(m => m.nombre).includes('COMERCIO'));
+        this.formPerfil.get('repartidorChk').setValue(t.roles.map(m => m.nombre).includes('REPARTIDOR'));
       });
   }
 
@@ -100,19 +91,13 @@ export class PerfilComponent implements OnInit {
     }
 
     if (this.roles.admin) {
-      cuerpo.body.role.push('ADMIN')
-    } else {
-      cuerpoQuitar.body.role.push('ADMIN')
+      (this.formPerfil.get('adminChk').value)?cuerpo.body.role.push('ADMIN'):cuerpoQuitar.body.role.push('ADMIN');
     }
     if (this.roles.comercio) {
-      cuerpo.body.role.push('COMERCIO')
-    } else {
-      cuerpoQuitar.body.role.push('COMERCIO')
+      (this.formPerfil.get('comercioChk').value)?cuerpo.body.role.push('COMERCIO'):cuerpoQuitar.body.role.push('COMERCIO');
     }
     if (this.roles.repartidor) {
-      cuerpo.body.role.push('REPARTIDOR')
-    } else {
-      cuerpoQuitar.body.role.push('REPARTIDOR')
+      (this.formPerfil.get('repartidorChk').value)?cuerpo.body.role.push('REPARTIDOR'):cuerpoQuitar.body.role.push('REPARTIDOR');
     }
 
     this.cliente.callServices(cuerpo)
@@ -145,8 +130,18 @@ export class PerfilComponent implements OnInit {
       });
   }
 
-  validarRequest() {
-
+  eventos(opc) {
+    switch(opc){
+      case'admin':
+        this.roles.admin = true;
+      break;
+      case'comercio':
+        this.roles.comercio = true;
+      break;
+      case'repartidor':
+        this.roles.repartidor = true;
+      break;
+    }
   }
 
 }
