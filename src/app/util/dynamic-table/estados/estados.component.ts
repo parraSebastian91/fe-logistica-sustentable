@@ -10,6 +10,7 @@ export class EstadosComponent implements OnInit {
   @Input() estados: any[];
   @Input() isSemaforo = false;
   estado;
+  estadoActual;
   listEstados: { id: number; name: string; desc: string; icon: string; }[];
   style: any = {};
   constructor(
@@ -19,13 +20,14 @@ export class EstadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const estadoActual = this.estados[this.estados.length - 1];
-    this.estado = this.listEstados.find(f => f.id === estadoActual.estado.id_est);
+    this.estadoActual = this.estados[this.estados.length - 1];
+    console.log(this.estadoActual)
+    this.estado = this.listEstados.find(f => f.id === this.estadoActual.estado.id_est);
     if (this.isSemaforo) {
       this.style = {
         padding: '5px',
         'border-radius': '50%',
-        background: estadoActual.estado.color
+        background: this.estadoActual.estado.color
       };
     }
   }
