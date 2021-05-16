@@ -131,8 +131,6 @@ export class DynamicTableComponent implements OnInit, OnChanges {
   setDataset() {
     this.mensaje = ((this.estado === 'cargando') ? 'Descargando Datos' : 'No existen registros visibles');
     this.dataSource = new MatTableDataSource(this.data);
-    console.log(this.data)
-
     this.setColumnas();
     this.setFiltros();
     this.dataSource.filterPredicate = this.setFiltrosFN();

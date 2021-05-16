@@ -21,7 +21,6 @@ export class EstadosComponent implements OnInit {
 
   ngOnInit(): void {
     this.estadoActual = this.estados[this.estados.length - 1];
-    console.log(this.estadoActual)
     this.estado = this.listEstados.find(f => f.id === this.estadoActual.estado.id_est);
     if (this.isSemaforo) {
       this.style = {
